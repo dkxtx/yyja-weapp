@@ -12,7 +12,8 @@
     "pages/my/order/index",
     "pages/service/phone/index",
     "pages/service/weather/index",
-    "pages/service/notice/detail/index"
+    "pages/service/notice/detail/index",
+    "pages/my/oder_detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
