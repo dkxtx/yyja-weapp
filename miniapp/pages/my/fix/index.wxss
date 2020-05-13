@@ -35,8 +35,6 @@
   margin-top: -50rpx;
 }
 
-.content-class {}
-
 .title {
   margin-left: 10rpx;
   margin-top: 30rpx;
