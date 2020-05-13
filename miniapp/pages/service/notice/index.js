@@ -5,25 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    noticeTitle: [
-      {
-        title: '【2020】中德(英伦联邦)通字第040号',
-        content: '关于绿化消杀的温馨提示',
-        date: '04月28日',
-        _id: '123'
-      },
-      {
-        title: '【2020】中德(英伦联邦)通字第040号',
-        content: '关于绿化消杀的温馨提示',
-        date: '04月28日',
-        _id: '456'
-      }
-    ]
+    noticeTitle: []
   },
 
   showDetail(e) {
+    console.log(e)
     wx.navigateTo({
-      url: 'detail/index?id=' + e.currentTarget.dataset.id,
+      url: 'detail/index?data=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item)),
     })
   },
 
@@ -31,11 +19,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.login({
-    //   success: (res) => {
-    //     console.log(res)
-    //   }
-    // })
+    var _self = this
+    wx.request({
+      url: 'http://192.168.50.224:9001/user/notices',
+      method: 'GET',
+      data: {
+        pc_id: 1
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        res.data.data.forEach(item => {
+          console.log(item)
+          item.created = _self.format(item.created)
+        })
+        _self.setData({
+          noticeTitle: res.data.data
+        })
+        console.log(res)
+      }
+    })
+  },
+
+  format(shijiancuo) {
+    var time = new Date(shijiancuo)
+    var m = time.getMonth() + 1
+    var d = time.getDate()
+    return m + '-' + this.add0(d)
+  },
+
+  add0(m) {
+    return m < 10 ? '0' + m : m
   },
 
   /**
