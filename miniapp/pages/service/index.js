@@ -5,28 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    noticeData: [
-      {
-        title: '关于绿化消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于环境蚁虫四害消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于“五一节”假日安全的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于绿化消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于“五一节”假日安全的温馨提示',
-        date: '04-28'
-      },
-    ]
+    noticeData: []
+  },
+
+  navigeNotice() {
+    wx.navigateTo({
+      url: 'notice/index',
+    })
   },
 
   navigePhone() {
@@ -41,16 +26,43 @@ Page({
     })
   },
 
-  navigeNotice() {
-    wx.navigateTo({
-      url: 'notice/index',
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _self = this
+    wx.request({
+      url: 'http://192.168.50.224:9001/user/notices',
+      method: 'GET',
+      data: {
+        pc_id: 1
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
+      success(res) {
+        res.data.data.forEach(item => {
+          console.log(item)
+          item.created = _self.format(item.created)
+        })
+        _self.setData({
+          noticeData: res.data.data
+        })
+        console.log(res)
+      }
+    })
+  },
+
+  format(shijiancuo) {
+    var time = new Date(shijiancuo)
+    var m = time.getMonth() + 1
+    var d = time.getDate()
+    return m + '-' + this.add0(d)
+  },
+
+  add0(m) {
+    return m < 10 ? '0' + m : m
   },
 
   /**

@@ -17,7 +17,12 @@
 	<!-- ---- -->
 	<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight-80}}px" bindchange="slideChange">
 		<!-- ---- -->
-		<swiper-item style="padding-bottom:100rpx">
+		<swiper-item wx:if="{{no_pay_data.length === 0}}">
+			<view style="text-align:center;margin-top:40rpx;">
+				暂无数据
+			</view>
+		</swiper-item>
+		<swiper-item wx:else style="padding-bottom:100rpx">
 			<scroll-view scroll-y="true" style="height: 90%;">
 				<view class="no_pay_swiper_box" wx:for="{{no_pay_data}}" wx:for-item="item">
 					<view class="no_swiper_box">
@@ -53,7 +58,9 @@
 		</swiper-item>
 		<!-- ---- -->
 		<swiper-item>
-			<view>我是呵呵</view>
+			<view style="text-align:center;margin-top:40rpx;">
+				暂无数据
+			</view>
 		</swiper-item>
 	</swiper>
 </view>

@@ -31,3 +31,59 @@
   height: 20rpx;
   background-color: #F5F5F4;
 }
+
+.box_title {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+.bottom_line {
+  width: 10%;
+  height: 12rpx;
+  position: absolute;
+  background-color: #D5B388;
+  bottom: -5rpx;
+  border-radius: 10rpx;
+}
+
+.center_box {
+  padding: 28rpx;
+}
+
+.box_phone {
+  font-size: 44rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(213, 179, 136, 1);
+  margin-bottom: 12rpx;
+}
+
+.bottom_box {
+  padding: 28rpx;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  padding: 26rpx 0;
+  border-bottom: 2rpx solid #F5F5F4;
+}
+
+.box_left {
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(36, 36, 36, 1);
+  flex: 1;
+}
+
+.box_right {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(213, 179, 136, 1);
+}
