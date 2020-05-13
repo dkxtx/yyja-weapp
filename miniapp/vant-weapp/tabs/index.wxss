@@ -134,8 +134,8 @@
 .van-tab--active {
     font-weight: 500;
     font-weight: var(--font-weight-bold, 500);
-    color: #008EFF;
-    color: var(--tab-active-text-color, #008EFF)
+    color: #242424;
+    color: var(--tab-active-text-color, #242424)
 }
 
 .van-tab--disabled {

@@ -78,6 +78,13 @@
 					"id": -1,
 					"name": "pages/my/index",
 					"pathName": "pages/my/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/order/index",
+					"pathName": "pages/my/order/index",
 					"scene": null
 				}
 			]

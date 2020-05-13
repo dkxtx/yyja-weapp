@@ -1,10 +1,10 @@
 /* pages/my/index.wxss */
-.bg-class{
+.bg-class {
   background-color: #F5F5F4;
   height: 100%;
-position: absolute;
-
+  position: absolute;
 }
+
 .header-class {
   padding: 30rpx 30rpx;
   background-color: white;
@@ -102,15 +102,15 @@ position: absolute;
   margin-right: 20rpx;
 }
 
-.login-out-class{
+.login-out-class {
   width: 100%;
   height: 78rpx;
   text-align: center;
   line-height: 78rpx;
-  font-size:32rpx;
-  font-family:PingFangSC-Regular,PingFang SC;
-  font-weight:400;
-  color:rgba(36,36,36,1);
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(36, 36, 36, 1);
   background-color: white;
   margin-top: 100rpx;
 }

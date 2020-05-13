@@ -24,18 +24,18 @@
 		</view>
 	</view>
 	<view class="line"></view>
-	<view class="news-nav" bindtap="onClickOrder" data-type='all'>
+	<view class="news-nav" bindtap="onClickOrder" data-type='{{0}}'>
 		<view class="news-nav-title">我的订单</view>
 		<view class="news-nav-right">
 			<image class="news-nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
 		</view>
 	</view>
 	<van-grid column-num="5">
-		<van-grid-item icon="/images/icon-dqr@2x.png" text="全部订单" bindtap="onClickOrder" data-type='all'/>
-		<van-grid-item icon="/images/icon-dfk@2x.png" text="待付款" bindtap="onClickOrder" data-type='1'/>
-		<van-grid-item icon="/images/icon-yfh@2x.png" text="待发货" bindtap="onClickOrder" data-type='2'/>
-		<van-grid-item icon="/images/icon-dsh@2x.png" text="待收货" bindtap="onClickOrder" data-type='3'/>
-		<van-grid-item icon="/images/icon-ywc@2x.png" text="已完成" bindtap="onClickOrder" data-type='4'/>
+		<van-grid-item icon="/images/icon-dqr@2x.png" text="全部订单" bindtap="onClickOrder" data-type='{{0}}'/>
+		<van-grid-item icon="/images/icon-dfk@2x.png" text="待付款" bindtap="onClickOrder" data-type='{{1}}'/>
+		<van-grid-item icon="/images/icon-yfh@2x.png" text="待发货" bindtap="onClickOrder" data-type='{{2}}'/>
+		<van-grid-item icon="/images/icon-dsh@2x.png" text="待收货" bindtap="onClickOrder" data-type='{{3}}'/>
+		<van-grid-item icon="/images/icon-ywc@2x.png" text="已完成" bindtap="onClickOrder" data-type='{{4}}'/>
 	</van-grid>
 	<van-cell title="我的报修" is-link icon="/images/icon-wdbx@2x.png" />
 	<van-cell title="我的账单" is-link icon="/images/icon-wdjf@2x.png" />
