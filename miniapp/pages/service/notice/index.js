@@ -1,4 +1,5 @@
 // pages/service/notice/index.js
+var app = getApp();
 Page({
 
   /**
@@ -18,9 +19,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     var _self = this
     wx.request({
-      url: 'http://192.168.50.224:9001/user/notices',
+      url: app.globalData.apiUrl + '/user/notices',
       method: 'GET',
       data: {
         pc_id: 1
@@ -36,6 +40,7 @@ Page({
         _self.setData({
           noticeTitle: res.data.data
         })
+        wx.hideLoading({})
       }
     })
   },
