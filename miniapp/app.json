@@ -15,7 +15,8 @@
     "pages/service/notice/index",
     "pages/service/notice/detail/index",
     "pages/my/oder_detail/index",
-    "pages/my/bill/index"
+    "pages/my/bill/index",
+    "pages/auth/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
