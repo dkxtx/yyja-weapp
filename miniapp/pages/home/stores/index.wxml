@@ -1,7 +1,7 @@
 <view class="store">
   <view class="item" wx:for="{{store_list}}" wx:for-item="item" wx:key="index" bind:tap="onClickStore" data-store='{{item}}'>
     <view class="item-left">
-      <image class="" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" class="store-img-class">
+      <image class="" src="{{item.cover}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" class="store-img-class">
       </image>
     </view>
     <view class="item-right">
