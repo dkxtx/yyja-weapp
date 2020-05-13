@@ -120,6 +120,12 @@ Page({
         return m < 10 ? '0' + m : m
     },
 
+    navigeDetail() {
+        // wx.navigateTo({
+        //   url: '/pages/service/notice/index',
+        // })
+    },
+
     // 跳转周边商家
     storeAction() {
         // if (wx.getStorageSync('auth')) {

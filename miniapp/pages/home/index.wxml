@@ -28,7 +28,7 @@
 <view class="news">
 	<view class="news-nav">
 		<view class="news-nav-title">社区资讯</view>
-		<view class="news-nav-right">
+		<view class="news-nav-right" bindtap="navigeDetail">
 			<view class="news-nav-sub">查看全部资讯动态</view>
 			<image class="news-nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
 		</view>
