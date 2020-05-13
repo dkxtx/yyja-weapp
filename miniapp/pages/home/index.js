@@ -119,44 +119,38 @@ Page({
     add0(m) {
         return m < 10 ? '0' + m : m
     },
-    onClickNews(event){
-        wx.setStorageSync('news',event.currentTarget.dataset.news)
+    onClickNews(event) {
+        wx.setStorageSync('news', event.currentTarget.dataset.news)
         wx.navigateTo({
-          url:'/pages/home/new_detail/index'
+            url: '/pages/home/new_detail/index'
         })
     },
 
     navigeDetail() {
         wx.navigateTo({
-          url: '/pages/home/news/index',
+            url: '/pages/home/news/index',
         })
     },
 
     // 跳转周边商家
     storeAction() {
-        // if (wx.getStorageSync('auth')) {
         wx.navigateTo({
             url: '/pages/home/stores/index'
         })
-        // } else {
-        //     wx.navigateTo({
-        //         url: '/pages/auth/index'
-        //     })
-        // }
     },
 
     // 跳转物业缴费
     payAction() {
-        // if (wx.getStorageSync('auth')) {
         wx.navigateTo({
             url: '/pages/home/pay/index'
         })
-        // } else {
-        // wx.navigateTo({
-        //     url: '/pages/auth/index'
-        // })
-        // }
+    },
 
+    // 跳转发起保修
+    guaranteeAction() {
+        wx.navigateTo({
+            url: '/pages/home/guarantee/index'
+        })
     },
 
     /**

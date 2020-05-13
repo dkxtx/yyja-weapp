@@ -11,7 +11,7 @@
 </view>
 <van-grid column-num="5">
 	<van-grid-item icon="/images/icon_jfgl@2x.png" icon-size="45px" bind:tap="payAction" text="物业缴费" />
-	<van-grid-item icon="/images/icon_tsbx@2x.png" text="发起报修" />
+	<van-grid-item icon="/images/icon_tsbx@2x.png" bind:tap="guaranteeAction" text="发起报修" />
 	<van-grid-item icon="/images/icon_izxfw@2x.png" text="在线服务" />
 	<van-grid-item icon="/images/icon_wqdc@2x.png" text="问卷调查" />
 	<van-grid-item icon="/images/icon_izbsj@2x.png" text="周边商家" bind:tap="storeAction" />
