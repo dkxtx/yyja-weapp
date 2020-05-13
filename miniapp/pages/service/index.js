@@ -1,4 +1,5 @@
 // pages/service/index.js
+var app = getApp();
 Page({
 
   /**
@@ -32,8 +33,11 @@ Page({
    */
   onLoad: function (options) {
     var _self = this
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
-      url: 'http://192.168.50.224:9001/user/notices',
+      url: app.globalData.apiUrl + '/user/notices',
       method: 'GET',
       data: {
         pc_id: 1
@@ -43,12 +47,14 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success(res) {
+        console.log(res)
         res.data.data.forEach(item => {
           item.created = _self.format(item.created)
         })
         _self.setData({
           noticeData: res.data.data
         })
+        wx.hideLoading({})
       }
     })
   },
