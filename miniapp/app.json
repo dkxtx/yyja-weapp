@@ -9,7 +9,8 @@
     "pages/home/submit/index",
     "pages/home/pay/index",
     "pages/my/order/index",
-    "pages/my/oder_detail/index"
+    "pages/my/oder_detail/index",
+    "pages/my/fix/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
