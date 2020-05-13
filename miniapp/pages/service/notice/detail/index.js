@@ -15,7 +15,6 @@ Page({
     this.setData({
       detailData: JSON.parse(decodeURIComponent(options.data))
     })
-    console.log(JSON.parse(decodeURIComponent(options.data)))
   },
 
   /**

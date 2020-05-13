@@ -21,6 +21,7 @@ Page({
   },
 
   navigeWeather() {
+    return
     wx.navigateTo({
       url: 'weather/index',
     })
@@ -43,13 +44,11 @@ Page({
       },
       success(res) {
         res.data.data.forEach(item => {
-          console.log(item)
           item.created = _self.format(item.created)
         })
         _self.setData({
           noticeData: res.data.data
         })
-        console.log(res)
       }
     })
   },

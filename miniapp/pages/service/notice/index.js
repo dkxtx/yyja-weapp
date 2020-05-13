@@ -9,7 +9,6 @@ Page({
   },
 
   showDetail(e) {
-    console.log(e)
     wx.navigateTo({
       url: 'detail/index?data=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item)),
     })
@@ -32,13 +31,11 @@ Page({
       },
       success(res) {
         res.data.data.forEach(item => {
-          console.log(item)
           item.created = _self.format(item.created)
         })
         _self.setData({
           noticeTitle: res.data.data
         })
-        console.log(res)
       }
     })
   },
