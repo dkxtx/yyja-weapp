@@ -92,6 +92,13 @@
 					"id": -1,
 					"name": "pages/my/oder_detail/index",
 					"pathName": "pages/my/oder_detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/fix/index",
+					"pathName": "pages/my/fix/index",
 					"scene": null
 				}
 			]
