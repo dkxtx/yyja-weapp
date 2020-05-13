@@ -1,3 +1,0 @@
-<!--pages/auth/index.wxml-->
-<view class="auth_text">授权登录，让我们更好的为您服务</view>
-<button bindgetuserinfo="getUserInfo" open-type="getUserInfo"></button>

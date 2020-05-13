@@ -1,5 +1,0 @@
-/* pages/auth/index.wxss */
-.auth_text {
-  text-align: center;
-  margin: 100rpx;
-}
