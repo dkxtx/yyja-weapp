@@ -5,7 +5,7 @@
 			<image src="{{item.pics[0]}}" style="width:100%;height:100%;border-radius:10rpx"></image>
 			<view class="img-count">{{item.pics.length}}图</view>
 		</view>
-		<view class="content-class">
+		<view>
 			<view class="title">{{item.title}}</view>
 			<view class="time">{{item.time}}</view>
 		</view>
