@@ -119,11 +119,17 @@ Page({
     add0(m) {
         return m < 10 ? '0' + m : m
     },
+    onClickNews(event){
+        wx.setStorageSync('news',event.currentTarget.dataset.news)
+        wx.navigateTo({
+          url:'/pages/home/new_detail/index'
+        })
+    },
 
     navigeDetail() {
-        // wx.navigateTo({
-        //   url: '/pages/service/notice/index',
-        // })
+        wx.navigateTo({
+          url: '/pages/home/news/index',
+        })
     },
 
     // 跳转周边商家

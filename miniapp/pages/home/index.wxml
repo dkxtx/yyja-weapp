@@ -33,7 +33,7 @@
 			<image class="news-nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
 		</view>
 	</view>
-	<view class="item" wx:for="{{newsData}}" wx:key="index" wx:for-item="item">
+	<view class="item" wx:for="{{newsData}}" wx:key="index" wx:for-item="item" bindtap="onClickNews" data-news="{{item}}">
 		<view class="item-left">
 			<view class="item-left-title">{{item.title}}</view>
 			<view class="item-left-bottom">

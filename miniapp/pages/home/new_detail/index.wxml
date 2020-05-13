@@ -1,0 +1,12 @@
+<!--pages/home/new_detail/index.wxml-->
+<view class="bg-class">
+	<view class="title">{{news.title}}</view>
+	<view class="sub_title">{{news.sub_title}}</view>
+	<view style="display:flex;background:white;padding:20rpx 30rpx">
+		<view class="left">阅读：{{news.read_count}}</view>
+		<view class="right">{{news.created}}</view>
+	</view>
+	<block wx:if="{{news.url}}">
+		<rich-text nodes="{{news.url}}"></rich-text>
+	</block>
+</view>

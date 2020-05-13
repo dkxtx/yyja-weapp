@@ -1,0 +1,15 @@
+<!--pages/home/news/index.wxml-->
+<view class="bg-class">
+	<view class="item" wx:for="{{newsData}}" wx:key="index" wx:for-item="item" bindtap="onClickNews" data-news="{{item}}">
+		<view class="item-left">
+			<view class="item-left-title">{{item.title}}</view>
+			<view class="item-left-bottom">
+				<view class="item-left-bottom-red">阅读{{item.read_count}}</view>
+				<view class="item-left-bottom-red">{{item.created}}</view>
+			</view>
+		</view>
+		<view class="item-right">
+			<image class="item-right-image" src="{{item.cover}}" mode="aspectFill" lazy-load="false" binderror="" bindload=""></image>
+		</view>
+	</view>
+</view>
