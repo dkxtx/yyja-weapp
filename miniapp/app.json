@@ -11,7 +11,6 @@
     "pages/home/pay/index",
     "pages/my/order/index",
 
-    "pages/my/oder_detail/index",
     "pages/my/fix/index",
     "pages/service/phone/index",
     "pages/service/weather/index",
