@@ -8,8 +8,8 @@
 					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">登录/注册</view>
 				</view>
 				<view wx:if="{{is_login == true}}" style="display:flex">
-					<image src="{{user_info.avatarUrl?user_info.avatarUrl:'/images/icon-user@2x.png'}}" style="width:110rpx;height:110rpx"></image>
-					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">{{user_info.nickName?user_info.nickName:"test"}}</view>
+					<image src="{{user_info.avatarUrl}}" style="width:110rpx;height:110rpx"></image>
+					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">{{user_info.nickName}}</view>
 					<view class="user-tag">业主</view>
 				</view>
 			</view>
@@ -40,5 +40,5 @@
 	<van-cell title="我的报修" is-link icon="/images/icon-wdbx@2x.png" url="/pages/my/fix/index" />
 	<van-cell title="我的账单" is-link icon="/images/icon-wdjf@2x.png" url="/pages/my/bill/index"/>
 	<van-cell title="关于" is-link icon="/images/icon-gy@2x.png" />
-	<view class="login-out-class" bindtap="log_in_out">{{is_login==true?'退出登录':'登录/注册'}}</view>
+	<button class="login-out-class" bindgetuserinfo="getUserInfo" open-type="getUserInfo">{{is_login==true?'退出登录':'登录/注册'}}</button>
 </view>

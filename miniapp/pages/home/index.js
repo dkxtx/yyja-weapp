@@ -80,16 +80,29 @@ Page({
 
     // 跳转周边商家
     storeAction() {
-        wx.navigateTo({
-            url: '/pages/home/stores/index'
-        })
+        if (wx.getStorageSync('auth')) {
+            wx.navigateTo({
+                url: '/pages/home/stores/index'
+            })
+        } else {
+            wx.navigateTo({
+                url: '/pages/auth/index'
+            })
+        }
     },
 
-    // 跳转周边商家
+    // 跳转物业缴费
     payAction() {
-        wx.navigateTo({
-            url: '/pages/home/pay/index'
-        })
+        if (wx.getStorageSync('auth')) {
+            wx.navigateTo({
+                url: '/pages/home/pay/index'
+            })
+        } else {
+            wx.navigateTo({
+                url: '/pages/auth/index'
+            })
+        }
+
     },
 
     /**

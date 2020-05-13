@@ -1,43 +1,51 @@
 // pages/my/index.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    is_login:true,
-    user_info:{}
+    is_login: false,
+    user_info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getUserInfo({
-      success (res) {
-        console.log(res)
-      },
-      fail: () => {},
-      complete: (result) => {
-        console.log(result)
-         const user_info = result;
-        this.setData({
-          user_info:user_info
-        })
-      }
-    })
+    console.log(app.globalData.userInfo)
+    if (app.globalData.userInfo) {
+      this.setData({
+        is_login: true,
+        user_info: app.globalData.userInfo
+      })
+    }
   },
-  log_in_out(){
-    var log_status = this.data.is_login
-    log_status = !log_status
-    this.setData({
-      is_login:log_status
-    })
+  getUserInfo() {
+    var _self = this
+    if (this.data.is_login) {
+      app.globalData.userInfo = null
+      _self.setData({
+        is_login: false
+      })
+    } else {
+      wx.getUserInfo({
+        success: function (res) {
+          console.log(res)
+          app.globalData.userInfo = res.userInfo
+          _self.setData({
+            user_info: app.globalData.userInfo,
+            is_login: true
+          })
+        }
+      })
+    }
   },
-  onClickOrder(event){
+  onClickOrder(event) {
     console.log(event.target.dataset.type)
     wx.navigateTo({
-      url:'/pages/my/order/index'+'?data='+JSON.stringify(event.currentTarget.dataset.type)
+      url: '/pages/my/order/index' + '?data=' + JSON.stringify(event.currentTarget.dataset.type)
     })
   },
 
