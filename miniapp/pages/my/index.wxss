@@ -1,0 +1,62 @@
+/* pages/my/index.wxss */
+.header-class {
+  padding: 30rpx 30rpx;
+}
+
+.header-content {
+  display: flex;
+}
+
+.header-desc {
+  display: flex;
+  width: 90%;
+}
+
+.header-setting {
+  width: 10%;
+}
+
+.user-tag {
+  height: 32rpx;
+  border-radius: 4rpx;
+  border: 1px solid rgba(205, 170, 110, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(146, 100, 47, 1);
+  margin-top: 60rpx;
+  margin-left: -70rpx;
+}
+
+.header-location {
+  width: 690rpx;
+  height: 68rpx;
+  background: rgba(252, 248, 243, 1);
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+  display: flex;
+  line-height: 68rpx;
+}
+
+.location-class {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 20rpx
+}
+
+.switch-btn {
+  width: 156rpx;
+  height: 48rpx;
+  background: rgba(229, 73, 84, 1);
+  border-radius: 24rpx;
+  margin-left: 80rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 48rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}

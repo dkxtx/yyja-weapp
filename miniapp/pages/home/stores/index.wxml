@@ -1,0 +1,18 @@
+<view class="store">
+  <view class="item" wx:for="{{store_list}}" wx:for-item="item" wx:key="index" bind:tap="onClickStore" data-store='{{item}}'>
+    <view class="item-left">
+      <image class="" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" class="store-img-class">
+      </image>
+    </view>
+    <view class="item-right">
+      <view class="store-name">{{item.name}}</view>
+      <view style="margin-top:10rpx">
+        <text class="store-tags" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="idx1">{{tag}}</text>
+      </view>
+      <view style="margin-top:10rpx">
+        <text class="store-activity" wx:for="{{item.activities}}" wx:for-item="activity" wx:key="idx2">{{activity}}</text>
+      </view>
+      <view class="store-distance">{{item.distance}}</view>
+    </view>
+  </view>
+</view>

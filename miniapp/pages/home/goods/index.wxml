@@ -1,0 +1,26 @@
+<!--pages/home/goods/index.wxml-->
+<view>
+ <view class="banner" style="height:{{bannerHeight}}px">
+    <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%;display:flex">
+      <image wx:for="{{banners}}" wx:for-item="item" wx:key="index" src="{{item.pic}}" class="scroll-view-item_H" style="height:{{bannerHeight}}px"></image>
+    </scroll-view>
+  </view>
+  <view class="content">
+   <view class="store-name">好利来(华府大道店)</view>
+    <view style="word-break:break-all;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;padding:0 30rpx">
+      <text class="store-tags" wx:for="{{tags}}" wx:for-item="tag" wx:key="idx1">{{tag+'、'}}</text>
+    </view>
+    <view class="sold-count">销量{{sold_count}}</view>
+    <view style="display:flex">
+     <view class="price">￥{{price}}</view>
+     <view class="'btn-buy'" bindtap="onClickBuy" data-id='{{_id}}'>立即购买</view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="section">
+  <view style="width:10rpx;height:40rpx;background:#D5B388;margin-top:30rpx;margin-right:20rpx"></view>商品详情</view>
+  <!-- <web-view src="https://baidu.com"></web-view> -->
+  <view class="item" wx:for="{{banners}}" wx:for-item="item" wx:key="index">
+    <image wx:for="{{banners}}" wx:for-item="item" wx:key="index" src="{{item.pic}}"  style="width:100%;height:{{bannerHeight}}px"></image>
+  </view>
+</view>

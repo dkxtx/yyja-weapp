@@ -1,0 +1,35 @@
+<!--pages/home/submit/index.wxml-->
+<view class="address-item">
+	<view class="address">{{selected_address.provinceName+selected_address.cityName+selected_address.countyName}}</view>
+	<view class="address-detail">{{selected_address.detailInfo}}</view>
+	<view class="user">{{selected_address.userName}}<text style="margin-left:10rpx">{{selected_address.telNumber }}</text></view>
+</view>
+<view class="line"></view>
+<view class="section">
+	<view style="width:10rpx;height:40rpx;background:#D5B388;margin-top:30rpx;margin-right:20rpx"></view>订单信息
+</view>
+<view class="item">
+	<view class="item-left">
+		<image class="" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" class="store-img-class">
+		</image>
+	</view>
+	<view class="item-right">
+		<view class="list-store-name">{{item.name}}</view>
+		<view style="word-break:break-all;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;">
+			<text class="store-tags" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="idx1">{{tag+'、'}}</text>
+		</view>
+		<view class="store-distance" style="left:230rpx;color:#FD6842;font-size:28rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(253,104,66,1);">￥{{item.price}}</view>
+		<view class="store-distance" style="display:flex;text-align:center">
+			<view style="width:30rpx;height:30rpx;color:#262626" bindtap="onClickMinus">-</view>
+			<view style="width:100rpx;height:30rpx;background:#F2F2F2;line-height:30rpx;margin-top:5rpx;color:#262626">{{goods_count}}</view>
+			<view style="width:30rpx;height:30rpx;color:#262626" bindtap="onClickPlus">+</view>
+		</view>
+	</view>
+</view>
+<view class="footer">
+	<view class="footer-price">
+		<view class="total-price">合计：<text style="color:#FD6842">￥{{total_amount}}</text></view>
+    <view class="goods-count">共计{{goods_count}}件商品</view>
+	</view>
+	<view class="submit-btn">确认订单</view>
+</view>

@@ -1,0 +1,59 @@
+.item {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    height: 230rpx;
+    display: flex;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.item-left {
+    /* flex-basis: 170rpx; */
+    width: 170rpx;
+}
+
+.store-img-class{
+    width:170rpx;
+    height:170rpx;
+    border-radius:10rpx;
+    margin-top:30rpx;
+}
+
+.item-right {
+    /* flex: 1; */
+    padding: 30rpx 30rpx;
+}
+
+.store-name{
+    font-size:32rpx;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+}
+
+.store-tags{
+    font-size:14px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,103,104,1);
+    margin-right: 10rpx;
+}
+
+.store-activity{
+    border-radius:4rpx;
+    border:2rpx solid rgba(213,179,136,1);
+    font-size:20rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(213,179,136,1);
+    margin-right: 10rpx;
+    padding: 0 10rpx;
+}
+
+.store-distance{
+    position: absolute;
+    right: 30rpx;
+    font-size:26rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(195,195,195,1);
+}

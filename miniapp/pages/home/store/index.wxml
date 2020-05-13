@@ -1,0 +1,36 @@
+<view>
+  <view class="store-name">好利来(华府大道店)</view>
+  <view class="banner">
+    <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%;display:flex">
+      <image wx:for="{{banners}}" wx:for-item="item" wx:key="index" src="{{item.pic}}" class="scroll-view-item_H"></image>
+    </scroll-view>
+  </view>
+  <view class="address">
+    <view class="address-desc">
+      <view>成都双流区高新路877号康普雷斯大酒店底商距您1.2KM</view>
+      <view style="margin-top:10rpx">营业中  09:00-20:00</view>
+    </view>
+    <view class="phone">
+      <image src="/images/icon-phone@2x.png" style="width:28rpx;height:28rpx"></image>
+      <view>联系商家</view>
+    </view>
+  </view>
+  <view class="section">商品列表</view>
+  <view class="item" wx:for="{{goods_list}}" wx:for-item="item" wx:key="index" bind:tap="onClickGoods" data-goods='{{item}}'>
+    <view class="item-left">
+      <image class="" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" class="store-img-class">
+      </image>
+    </view>
+    <view class="item-right">
+      <view class="list-store-name">{{item.name}}</view>
+      <view style="word-break:break-all;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;">
+        <text class="store-tags" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="idx1">{{tag+'、'}}</text>
+      </view>
+      <view>
+        <text class="store-activity">{{item.open_time}}</text>
+      </view>
+      <view class="store-distance" style="left:230rpx;color:#FD6842;font-size:28rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(253,104,66,1);">￥{{item.price}}</view>
+      <view class="store-distance">销售{{item.sold_count}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,122 @@
+/* pages/home/store/index.wxss */
+.store-name{
+  width: 100%;
+  padding: 30rpx;
+  font-size:44rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(77,77,77,1);
+}
+
+.banner{
+  width: 100%;
+  height: 180rpx;
+}
+
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item{
+  height: 180rpx;
+}
+.scroll-view-item_H{
+  display: inline-block;
+  height: 180rpx;
+  width: 240rpx;
+  margin-left: 30rpx;
+  border-radius: 10rpx;
+}
+
+.address{
+  width: 100%;
+  padding: 30rpx;
+  display: flex;
+}
+
+.address-desc{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(50,51,52,1);
+}
+
+.phone{
+  position: absolute;
+  right: 30rpx;
+  font-size:20rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(77,77,77,1);
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.section{
+  font-size:32rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(36,36,36,1);
+  width: 100%;
+  padding: 0 30rpx;
+  background: #EBEBEB;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.item {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 230rpx;
+  display: flex;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+
+.item-left {
+  /* flex-basis: 170rpx; */
+  width: 170rpx;
+}
+
+.store-img-class{
+  width:170rpx;
+  height:170rpx;
+  border-radius:10rpx;
+  margin-top:30rpx;
+}
+
+.item-right {
+  flex: 1;
+  padding: 30rpx 30rpx;
+}
+
+.list-store-name{
+  font-size:32rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+
+.store-tags{
+  font-size:14px;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(102,103,104,1);
+}
+
+
+.store-activity{
+  font-size:14px;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(102,103,104,1);
+}
+
+.store-distance{
+  position: absolute;
+  right: 30rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(195,195,195,1);
+  margin-top: 20rpx;
+}
