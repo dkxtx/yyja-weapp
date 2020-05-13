@@ -1,1 +1,96 @@
 /* pages/service/index.wxss */
+.banner {
+  width: 94%;
+  height: 360rpx;
+  margin: auto;
+}
+
+.banner_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.notice_box {
+  width: 94%;
+  margin: auto;
+  margin-top: 24rpx;
+}
+
+.notice_title {
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  flex: 1;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 28rpx 0;
+  border-bottom: 2rpx solid #F5F5F4;
+}
+
+.box_title {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  flex: 1;
+}
+
+.box_content {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(123, 123, 123, 1);
+}
+
+.right_icon {
+  width: 16rpx;
+  height: 24rpx;
+}
+
+.line {
+  width: 100%;
+  height: 20rpx;
+  background-color: #F5F5F4;
+}
+
+.phone_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 48%;
+  height: 86rpx;
+  margin-right: 2%;
+  background: rgba(252, 243, 236, 1);
+  border-radius: 12rpx;
+}
+
+.weather_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 48%;
+  height: 86rpx;
+  margin-left: 2%;
+  background: rgba(227, 234, 244, 1);
+  border-radius: 12rpx;
+}
+
+.icon_class {
+  width: 48rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  margin-left: 24rpx;
+}
+
+.box_text {
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}

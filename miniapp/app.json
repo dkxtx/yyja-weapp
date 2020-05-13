@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/service/notice/index",
     "pages/home/index",
     "pages/service/index",
     "pages/my/index",
@@ -8,7 +9,10 @@
     "pages/home/goods/index",
     "pages/home/submit/index",
     "pages/home/pay/index",
-    "pages/my/order/index"
+    "pages/my/order/index",
+    "pages/service/phone/index",
+    "pages/service/weather/index",
+    "pages/service/notice/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

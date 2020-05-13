@@ -1,56 +1,18 @@
-// pages/service/index.js
+// pages/service/notice/detail/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    noticeData: [
-      {
-        title: '关于绿化消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于环境蚁虫四害消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于“五一节”假日安全的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于绿化消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于“五一节”假日安全的温馨提示',
-        date: '04-28'
-      },
-    ]
-  },
 
-  navigePhone() {
-    wx.navigateTo({
-      url: 'phone/index',
-    })
-  },
-
-  navigeWeather() {
-    wx.navigateTo({
-      url: 'weather/index',
-    })
-  },
-
-  navigeNotice() {
-    wx.navigateTo({
-      url: 'notice/index',
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
   },
 
   /**
