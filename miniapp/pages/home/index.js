@@ -11,7 +11,7 @@ Page({
         duration: 1000,
         newsData: [],
         banners: [{
-            "pic": "/images/img-banner2@2x.png"
+            pic: ""
         }],
         categories: [{
             "_id": "1",

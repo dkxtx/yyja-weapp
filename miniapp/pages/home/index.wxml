@@ -3,7 +3,7 @@
 		<swiper indicator-dots="{{indicatorDots}}" autoplay interval="{{interval}}" duration="{{duration}}">
 			<block wx:for="{{banners}}" wx:key="*this">
 				<swiper-item>
-					<image class="swiper-banner" src="../../images/img-banner1@2x.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" style="border-radius: 10px;"></image>
+					<image class="swiper-banner" src="http://aixingfucdn.mayunio.com/bzamcms1589373148643.png" mode="aspectFill" style="border-radius: 10px;"></image>
 				</swiper-item>
 			</block>
 		</swiper>
@@ -20,7 +20,7 @@
 	<swiper indicator-dots="{{indicatorDots}}" autoplay interval="{{interval}}" duration="{{duration}}">
 		<block wx:for="{{banners}}" wx:key="*this">
 			<swiper-item>
-				<image class="activity-banner" src="{{item.pic}}" mode="aspectFill" lazy-load="false" binderror="" bindload="" style="border-radius:10px"></image>
+				<image class="activity-banner" src="http://aixingfucdn.mayunio.com/bzamcms1589373193603.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" style="border-radius:10px"></image>
 			</swiper-item>
 		</block>
 	</swiper>
