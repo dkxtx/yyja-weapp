@@ -6,7 +6,8 @@
     "pages/home/stores/index",
     "pages/home/store/index",
     "pages/home/goods/index",
-    "pages/home/submit/index"
+    "pages/home/submit/index",
+    "pages/home/pay/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

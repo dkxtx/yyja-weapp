@@ -66,6 +66,13 @@ Page({
         })
     },
 
+    // 跳转周边商家
+    payAction() {
+        wx.navigateTo({
+            url:'/pages/home/pay/index'
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
