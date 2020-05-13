@@ -5,16 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    _id:"dfsa93429129039021",
-    banners: [
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"},
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"},
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"},
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"}
-    ],
-    tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-    sold_count:100,
-    price:3000.00
+    goods:{}
   },
 
   /**
@@ -35,7 +26,13 @@ Page({
       fail: () => {},
       complete: () => {}
     });
-    console.log(options)
+    var goods = wx.getStorageSync('goods')
+    goods.detail = goods.detail.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
+    this.setData({
+      goods:goods
+    })
+    wx.removeStorageSync('goods')
+    console.log(goods)
   },
 
   scroll(){
@@ -43,10 +40,9 @@ Page({
   },
 
   onClickBuy(event){
-    var $this = this;
-    console.log(event.currentTarget.dataset.id)
+    wx.setStorageSync('goods',this.data.goods)
     wx.navigateTo({
-      url:'/pages/home/submit/index'+'?data='+JSON.stringify(event.currentTarget.dataset.id)
+      url:'/pages/home/submit/index'
     })
   },
 

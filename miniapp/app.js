@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    apiUrl: 'http://192.168.50.224:9001'
+    apiUrl: 'https://sc.bzamo.com'
   }
 })

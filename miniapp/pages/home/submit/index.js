@@ -7,12 +7,12 @@ Page({
   data: {
     selected_address:{},
     item:{
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-        name:"中兴汽车(天府大道店)",
-        tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-        open_time:"周一至周日",
-        price:45.00,
-        sold_count:100
+      // pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
+      //   name:"中兴汽车(天府大道店)",
+      //   tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
+      //   open_time:"周一至周日",
+      //   price:45.00,
+      //   sold_count:100
     },
     goods_count:1,
     total_amount:0
@@ -23,6 +23,12 @@ Page({
    */
   onLoad: function (options) {
    this.getAddr()
+   var goods = wx.getStorageSync('goods')
+   this.setData({
+     item:goods
+   })
+   wx.removeStorageSync('goods')
+   console.log(this.data.item)
    this.data.total_amount = this.data.item.price*this.data.goods_count
    var current_total_amount = 0
    var current_price = this.data.item.price
@@ -46,7 +52,6 @@ Page({
     })
   },
   onClickMinus(){
-    console.log("------")
     if (this.data.goods_count === 1) {
       return wx.showToast({
         title: '购买数量不能小于1',
@@ -66,7 +71,12 @@ Page({
     })
   },
   onClickPlus(){
-    console.log("+++++++")
+    if (this.data.goods_count == this.data.item.stock) {
+      return wx.showToast({
+        title: '购买数量不能大于库存',
+        icon:"none"
+      })
+    }
     var current_goods_count = this.data.goods_count
     current_goods_count += 1
     var current_total_amount = 0
@@ -77,7 +87,24 @@ Page({
       goods_count:current_goods_count,
       total_amount:current_total_amount
     })
-   
+  },
+
+  onClickSubmit(){
+    var param = {
+      id:this.data.item.id,
+      count:this.data.goods_count
+    }
+    console.log(param)
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
+    
+    setTimeout(function () {
+      wx.hideLoading()
+      wx.showToast({title: '服务器数据异常，请稍后再试',icon: 'none',duration: 2000})
+    }, 2000)
+
   },
 
   /**

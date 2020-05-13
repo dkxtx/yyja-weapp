@@ -28,6 +28,10 @@ Page({
     })
   },
   dataLoad(){
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     wx.request({
       url: getApp().globalData.apiUrl+'/user/stores',
       method: 'GET',
@@ -51,6 +55,9 @@ Page({
           this.setData({
             store_list:list
           })
+          wx.hideLoading()
+      },fail:(err) => {
+        wx.hideLoading()
       }
     })
   },

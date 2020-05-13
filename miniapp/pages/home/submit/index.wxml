@@ -31,5 +31,5 @@
 		<view class="total-price">合计：<text style="color:#FD6842">￥{{total_amount}}</text></view>
     <view class="goods-count">共计{{goods_count}}件商品</view>
 	</view>
-	<view class="submit-btn">确认订单</view>
+	<view class="submit-btn" bindtap="onClickSubmit">确认订单</view>
 </view>

@@ -37,8 +37,7 @@ Page({
       store:store_data,
       banners:banner_data
     })
-
-    console.log(this.data.store)
+    this.getGoodsList()
   },
   getGoodsList(){
     wx.request({
@@ -53,14 +52,18 @@ Page({
       },
       success: (result) => {
           console.log(result)
+          this.setData({
+            goods_list:result.data.data
+          })
+          console.log(this.data.goods_list[0].pic)
       }
     })
   },
   scroll(){},
   onClickGoods(event){
-    console.log(event.currentTarget.dataset.goods)
+    wx.setStorageSync('goods',event.currentTarget.dataset.goods)
     wx.navigateTo({
-      url:'/pages/home/goods/index'+'?data='+JSON.stringify(event.currentTarget.dataset.goods)
+      url:'/pages/home/goods/index'
     })
   },
   onClickCall(){
