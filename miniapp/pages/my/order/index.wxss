@@ -171,6 +171,7 @@
   font-family:PingFangSC-Medium,PingFang SC;
   font-weight:500;
   color:rgba(255,255,255,1);
-  position: absolute;
-  right: 30rpx;
+  float: right;
+  /* position: absolute;
+  right: 30rpx; */
 }
