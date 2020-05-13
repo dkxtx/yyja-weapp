@@ -44,8 +44,37 @@ Page({
   },
   onClickOrder(event) {
     console.log(event.target.dataset.type)
+    if (this.data.is_login === false) {
+      return wx.showToast({
+        title: '请登录账号',
+        icon:"none"
+      })
+    }
     wx.navigateTo({
       url: '/pages/my/order/index' + '?data=' + JSON.stringify(event.currentTarget.dataset.type)
+    })
+  },
+  onClickFix(){
+    if (this.data.is_login === false) {
+      return wx.showToast({
+        title: '请登录账号',
+        icon:"none"
+      })
+    }
+    wx.navigateTo({
+      url: '/pages/my/fix/index' 
+    })
+  },
+
+  onClickBill(){
+    if (this.data.is_login === false) {
+      return wx.showToast({
+        title: '请登录账号',
+        icon:"none"
+      })
+    }
+    wx.navigateTo({
+      url: '/pages/my/bill/index' 
     })
   },
 

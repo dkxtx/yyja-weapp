@@ -8,7 +8,7 @@
 					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">登录/注册</view>
 				</view>
 				<view wx:if="{{is_login == true}}" style="display:flex">
-					<image src="{{user_info.avatarUrl}}" style="width:110rpx;height:110rpx"></image>
+					<image src="{{user_info.avatarUrl}}" style="width:110rpx;height:110rpx;border-radius:55rpx"></image>
 					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">{{user_info.nickName}}</view>
 					<view class="user-tag">业主</view>
 				</view>
@@ -37,8 +37,8 @@
 		<van-grid-item icon="/images/icon-dsh@2x.png" text="待收货" bindtap="onClickOrder" data-type='{{3}}'/>
 		<van-grid-item icon="/images/icon-ywc@2x.png" text="已完成" bindtap="onClickOrder" data-type='{{4}}'/>
 	</van-grid>
-	<van-cell title="我的报修" is-link icon="/images/icon-wdbx@2x.png" url="/pages/my/fix/index" />
-	<van-cell title="我的账单" is-link icon="/images/icon-wdjf@2x.png" url="/pages/my/bill/index"/>
+	<van-cell title="我的报修" is-link icon="/images/icon-wdbx@2x.png" bindtap="onClickFix"  />
+	<van-cell title="我的账单" is-link icon="/images/icon-wdjf@2x.png" bindtap="onClickBill" />
 	<van-cell title="关于" is-link icon="/images/icon-gy@2x.png" />
 	<button class="login-out-class" bindgetuserinfo="getUserInfo" open-type="getUserInfo">{{is_login==true?'退出登录':'登录/注册'}}</button>
 </view>
