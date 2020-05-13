@@ -14,6 +14,11 @@ Page({
       url: 'notice/index',
     })
   },
+  showDetail(e){
+    wx.navigateTo({
+      url:'/pages/service/notice/detail/index?data='+ encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
+    })
+  },
 
   navigePhone() {
     wx.navigateTo({

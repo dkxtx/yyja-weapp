@@ -14,7 +14,7 @@
 			暂无公告
 		</view>
 		<view wx:else>
-			<view class="box" wx:for="{{noticeData}}" wx:for-item="item" wx:key="index">
+			<view class="box" wx:for="{{noticeData}}" wx:for-item="item" wx:key="index" bind:tap="showDetail" data-item="{{item}}">
 				<view class="box_title">{{item.title}}</view>
 				<view class="box_content">{{item.created}}</view>
 			</view>

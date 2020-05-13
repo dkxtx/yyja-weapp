@@ -33,7 +33,7 @@
   font-weight: 400;
   color: rgba(146, 100, 47, 1);
   margin-top: 70rpx;
-  margin-left: -240rpx;
+  margin-left: -70rpx;
 }
 
 .header-location {
