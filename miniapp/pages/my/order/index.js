@@ -109,15 +109,13 @@ Page({
       title: `切换到标签 ${event.detail.name}`,
       icon: 'none',
     });
-    var list = []
-    list = this.data.orders
-    this.setData({
-      orders:list
-    })
-    console.log(this.data.orders)
   },
   onClickOrder(event){
     console.log(event)
+    console.log(event.target.dataset)
+    wx.navigateTo({
+      url:'/pages/my/oder_detail/index'+'?data='+JSON.stringify(event.currentTarget.dataset.id)
+    })
   },
 
   /**
