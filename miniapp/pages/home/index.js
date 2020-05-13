@@ -61,7 +61,7 @@ Page({
             success: (res) => {
                 console.log(res)
                 wx.request({
-                    url: 'http://192.168.50.224:9001/user/wxlogin',
+                    url: getApp().globalData.apiUrl+'/user/wxlogin',
                     method: 'POST',
                     data: {
                         code: res.code
@@ -80,15 +80,15 @@ Page({
 
     // 跳转周边商家
     storeAction() {
-        if (wx.getStorageSync('auth')) {
+        // if (wx.getStorageSync('auth')) {
             wx.navigateTo({
                 url: '/pages/home/stores/index'
             })
-        } else {
-            wx.navigateTo({
-                url: '/pages/auth/index'
-            })
-        }
+        // } else {
+        //     wx.navigateTo({
+        //         url: '/pages/auth/index'
+        //     })
+        // }
     },
 
     // 跳转物业缴费
