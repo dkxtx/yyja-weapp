@@ -11,7 +11,7 @@ Page({
         duration: 1000,
 
         banners: [{
-            "pic": "../../images/img-banner2@2x.png"
+            "pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"
         }],
         categories: [{
             "_id": "1",
@@ -38,8 +38,7 @@ Page({
             "icon": "",
             "title": "周边商家"
         },
-        ],
-        newsData: []
+        ]
     },
 
     /**
@@ -72,47 +71,11 @@ Page({
                     },
                     success: (result) => {
                         wx.setStorageSync('token', result.data.data.token)
-                        this.getNews()
                         console.log(result)
                     }
                 })
             }
         })
-    },
-
-    getNews() {
-        wx.request({
-            url: 'http://192.168.50.224:9001/user/news',
-            method: 'GET',
-            data: {
-                pc_id: 1
-            },
-            header: {
-                'content-type': 'application/json', // 默认值
-                'token': wx.getStorageSync('token')
-            },
-            success: (result) => {
-                result.data.data.forEach(item => {
-                    item.created = this.format(item.created)
-                })
-                this.setData({
-                    newsData: result.data.data
-                })
-                console.log(result)
-            }
-        })
-    },
-
-    format(shijiancuo) {
-        var time = new Date(shijiancuo)
-        var y = time.getFullYear()
-        var m = time.getMonth() + 1
-        var d = time.getDate()
-        return y + '-' + m + '-' + this.add0(d)
-    },
-
-    add0(m) {
-        return m < 10 ? '0' + m : m
     },
 
     // 跳转周边商家

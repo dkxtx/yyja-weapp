@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    latitude:"",
+    longitude:"",
     store_list:[]
   },
 
@@ -12,6 +14,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getLocation({
+      type: 'wgs84',
+      success (res) {},
+      fail: () => {},
+      complete: (result) => {
+        this.setData({
+          latitude:result.latitude,
+          longitude:result.longitude
+        })
+        this.dataLoad()
+      }
+    })
+  },
+  dataLoad(){
     wx.request({
       url: getApp().globalData.apiUrl+'/user/stores',
       method: 'GET',
@@ -27,8 +43,27 @@ Page({
           this.setData({
             store_list:result.data.data
           })
+          this.data.store_list.forEach(element => {
+            element.distance_display = this.distance(this.data.latitude,this.data.longitude,element.latitude,element.longitude)
+          })
+          console.log(this.data.store_list)
+          var list = this.data.store_list
+          this.setData({
+            store_list:list
+          })
       }
-  })
+    })
+  },
+  distance: function (la1, lo1, la2, lo2) {
+    var La1 = la1 * Math.PI / 180.0;
+    var La2 = la2 * Math.PI / 180.0;
+    var La3 = La1 - La2;
+    var Lb3 = lo1 * Math.PI / 180.0 - lo2 * Math.PI / 180.0;
+    var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(La3 / 2), 2) + Math.cos(La1) * Math.cos(La2) * Math.pow(Math.sin(Lb3 / 2), 2)));
+    s = s * 6378.137;
+    s = Math.round(s * 10000) / 10000;
+    s = s.toFixed(2);
+    return s;
   },
 
   onClickStore (event) {

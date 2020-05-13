@@ -1,16 +1,16 @@
 <view>
-  <view class="store-name">好利来(华府大道店)</view>
+  <view class="store-name">{{store.name}}</view>
   <view class="banner">
     <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%;display:flex">
-      <image wx:for="{{banners}}" wx:for-item="item" wx:key="index" src="{{item.pic}}" class="scroll-view-item_H"></image>
+      <image wx:for="{{banners}}" wx:for-item="item" wx:key="index" src="{{item}}" class="scroll-view-item_H"></image>
     </scroll-view>
   </view>
   <view class="address">
     <view class="address-desc">
-      <view>成都双流区高新路877号康普雷斯大酒店底商距您1.2KM</view>
-      <view style="margin-top:10rpx">营业中  09:00-20:00</view>
+      <view>{{store.province+store.city+store.district+store.address+"距您"+store.distance_display+"M"}}</view>
+      <view style="margin-top:10rpx">营业时间  {{store.start_time+"-"+store.end_time}}</view>
     </view>
-    <view class="phone">
+    <view class="phone" bindtap="onClickCall">
       <image src="/images/icon-phone@2x.png" style="width:28rpx;height:28rpx"></image>
       <view>联系商家</view>
     </view>

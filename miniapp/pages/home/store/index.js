@@ -9,57 +9,9 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    banners: [
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"},
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"},
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"},
-      {"pic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"}
-    ],
-    goods_list:[
-      {
-        pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-        name:"中兴汽车(天府大道店)",
-        tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-        open_time:"周一至周日",
-        price:"45.00",
-        sold_count:100
-      },{
-        pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-        name:"中兴汽车(天府大道店)",
-        tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-        open_time:"周一至周日",
-        price:"45.00",
-        sold_count:100
-      },{
-        pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-        name:"中兴汽车(天府大道店)",
-        tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-        open_time:"周一至周日",
-        price:"45.00",
-        sold_count:100
-      },{
-        pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-        name:"中兴汽车(天府大道店)",
-        tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-        open_time:"周一至周日",
-        price:"45.00",
-        sold_count:100
-      },{
-        pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-        name:"中兴汽车(天府大道店)",
-        tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-        open_time:"周一至周日",
-        price:"45.00",
-        sold_count:100
-      },{
-        pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-        name:"中兴汽车(天府大道店)",
-        tags:["白色浪漫","四重奏","交响乐团","粉红豹","白色浪漫","四重奏","交响乐团","粉红豹","粉红豹"],
-        open_time:"周一至周日",
-        price:"45.00",
-        sold_count:100
-      }
-    ]
+    store:{},
+    banners: [],
+    goods_list:[]
   },
 
   /**
@@ -78,7 +30,31 @@ Page({
       fail: () => {},
       complete: () => {}
     });
-    console.log(options)
+    var store_data = JSON.parse(options.data)
+    var banner_data = []
+    banner_data.push(store_data.logo)
+    this.setData({
+      store:store_data,
+      banners:banner_data
+    })
+
+    console.log(this.data.store)
+  },
+  getGoodsList(){
+    wx.request({
+      url: getApp().globalData.apiUrl+'/user/store/commodities',
+      method: 'GET',
+      data: {
+        store_id: this.data.store.id
+      },
+      header: {
+          'content-type': 'application/json', // 默认值
+          'token': wx.getStorageSync('token')
+      },
+      success: (result) => {
+          console.log(result)
+      }
+    })
   },
   scroll(){},
   onClickGoods(event){
@@ -87,7 +63,11 @@ Page({
       url:'/pages/home/goods/index'+'?data='+JSON.stringify(event.currentTarget.dataset.goods)
     })
   },
-
+  onClickCall(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.store.phone 
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
