@@ -5,69 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    store_list:[{
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    },
-    {
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    },
-    {
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    },
-    {
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    },
-    {
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    },
-    {
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    },
-    {
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    },
-    {
-      pic: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg",
-      name:"中兴汽车(天府大道店)",
-      tags:["天府大道/银泰城","洗车修车"],
-      activities:["洗车券7折","全车美容立减99"],
-      distance:"100m"
-    }]
+    store_list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.request({
+      url: getApp().globalData.apiUrl+'/user/stores',
+      method: 'GET',
+      data: {
+          pc_id: 1
+      },
+      header: {
+          'content-type': 'application/json', // 默认值
+          'token': wx.getStorageSync('token')
+      },
+      success: (result) => {
+          console.log(result)
+          this.setData({
+            store_list:result.data.data
+          })
+      }
+  })
   },
 
   onClickStore (event) {

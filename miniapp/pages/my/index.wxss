@@ -3,6 +3,7 @@
   background-color: #F5F5F4;
   height: 100%;
   position: absolute;
+  width: 100%;
 }
 
 .header-class {
