@@ -10,15 +10,20 @@ Page({
         title: '【2020】中德(英伦联邦)通字第040号',
         content: '关于绿化消杀的温馨提示',
         date: '04月28日',
-        _id: '1234'
+        _id: '123'
+      },
+      {
+        title: '【2020】中德(英伦联邦)通字第040号',
+        content: '关于绿化消杀的温馨提示',
+        date: '04月28日',
+        _id: '456'
       }
     ]
   },
 
-  showDetail(item) {
-    console.log(item)
+  showDetail(e) {
     wx.navigateTo({
-      url: 'detail/index?id=' + item._id,
+      url: 'detail/index?id=' + e.currentTarget.dataset.id,
     })
   },
 

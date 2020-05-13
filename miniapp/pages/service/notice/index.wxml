@@ -1,7 +1,7 @@
 <!--pages/service/notice/index.wxml-->
 <view class="notice_container">
 <view class="line"></view>
-  <view class="box" wx:for="{{noticeTitle}}" wx:key="index" wx:for-item="item" bindtap="showDetail(item)">
+  <view class="box" wx:for="{{noticeTitle}}" wx:key="index" wx:for-item="item" bind:tap="showDetail"  data-id="{{item._id}}">
     <view class="box_title">{{item.title}}</view>
     <view class="box_content">{{item.content}}</view>
     <view class="box_date">{{item.date}}</view>

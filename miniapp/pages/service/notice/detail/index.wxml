@@ -1,2 +1,10 @@
 <!--pages/service/notice/detail/index.wxml-->
-<text>pages/service/notice/detail/index.wxml</text>
+<view class="detail_container">
+	<view class="top_box">
+		<view class="page_title">关于区域客服管家对可服务的温馨提示</view>
+		<view class="page_date">2020.02.19 17：48</view>
+	</view>
+	<view class="bottom_box">
+		<view class="page_content">{{contentText}}</view>
+	</view>
+</view>

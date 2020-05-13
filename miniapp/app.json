@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/service/notice/index",
+    "pages/service/phone/index",
     "pages/home/index",
     "pages/service/index",
     "pages/my/index",
@@ -10,13 +10,12 @@
     "pages/home/submit/index",
     "pages/home/pay/index",
     "pages/my/order/index",
-
     "pages/my/fix/index",
     "pages/service/phone/index",
     "pages/service/weather/index",
+    "pages/service/notice/index",
     "pages/service/notice/detail/index",
     "pages/my/oder_detail/index"
-
   ],
   "window": {
     "backgroundTextStyle": "light",

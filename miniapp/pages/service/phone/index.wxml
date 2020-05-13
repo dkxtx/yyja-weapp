@@ -1,2 +1,14 @@
 <!--pages/service/phone/index.wxml-->
-<text>pages/service/phone/index.wxml</text>
+<view class="phone_container">
+	<view class="top_box">
+		<image class="top_icon" src="../../../images/icon-wdxq@2x.png" lazy-load="false" binderror="" bindload=""></image>
+		<text class="top_text">中德英伦联邦1栋二单元1301</text>
+	</view>
+		<!-- ---- -->
+	<view class="line"></view>
+		<!-- ---- -->
+  <view></view>
+		<!-- ---- -->
+	<view class="line"></view>
+		<!-- ---- -->
+</view>
