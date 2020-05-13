@@ -98,7 +98,6 @@ Page({
                 this.setData({
                   newsData:result.data.data
                 })
-
                 wx.hideLoading()
             },fail:(err) => {
               wx.hideLoading()

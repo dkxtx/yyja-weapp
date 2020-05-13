@@ -3,6 +3,7 @@
 	<van-tabs swipeable style="width:100%" animated color="#D5B388" active-color="#242424" active="{{ active }}" bind:change="onChange">
 		<van-tab title="全部">
 			<view style="width:100%;">
+			<view wx:if="{{orders.length == 0}}" class="no-order-class">暂无订单数据</view>
 				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
 					<view class="item-header">
 						<image src="{{item.store.pic}}" class="store-pic"></image>
@@ -36,7 +37,7 @@
 			</view>
 		</van-tab>
 		<van-tab title="待付款">
-			<!-- <view style="width:100%;height:100rpx;background:yellow">test2</view> -->
+					<view wx:if="{{orders.length == 0}}" class="no-order-class">暂无订单数据</view>
 			<view style="width:100%;">
 				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
 					<view class="item-header">
@@ -71,7 +72,7 @@
 			</view>
 		</van-tab>
 		<van-tab title="待发货">
-			<!-- <view style="width:100%;height:100rpx;background:green">test3</view> -->
+			<view wx:if="{{orders.length == 0}}" class="no-order-class">暂无订单数据</view>
 			<view style="width:100%;">
 				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
 					<view class="item-header">
@@ -106,7 +107,7 @@
 			</view>
 		</van-tab>
 		<van-tab title="待收货">
-			<!-- <view style="width:100%;height:100rpx;background:blue">test4</view> -->
+			<view wx:if="{{orders.length == 0}}" class="no-order-class">暂无订单数据</view>
 			<view style="width:100%;">
 				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
 					<view class="item-header">
@@ -141,7 +142,7 @@
 			</view>
 		</van-tab>
 		<van-tab title="已完成">
-			<!-- <view style="width:100%;height:100rpx;background:orange">test5</view> -->
+			<view wx:if="{{orders.length == 0}}" class="no-order-class">暂无订单数据</view>
 			<view style="width:100%;">
 				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
 					<view class="item-header">
