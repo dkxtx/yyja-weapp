@@ -1,49 +1,24 @@
-// pages/service/index.js
+// pages/service/notice/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    noticeData: [
+    noticeTitle: [
       {
-        title: '关于绿化消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于环境蚁虫四害消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于“五一节”假日安全的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于绿化消杀的温馨提示',
-        date: '04-28'
-      },
-      {
-        title: '关于“五一节”假日安全的温馨提示',
-        date: '04-28'
-      },
+        title: '【2020】中德(英伦联邦)通字第040号',
+        content: '关于绿化消杀的温馨提示',
+        date: '04月28日',
+        _id: '1234'
+      }
     ]
   },
 
-  navigePhone() {
+  showDetail(item) {
+    console.log(item)
     wx.navigateTo({
-      url: 'phone/index',
-    })
-  },
-
-  navigeWeather() {
-    wx.navigateTo({
-      url: 'weather/index',
-    })
-  },
-
-  navigeNotice() {
-    wx.navigateTo({
-      url: 'notice/index',
+      url: 'detail/index?id=' + item._id,
     })
   },
 
@@ -51,6 +26,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // wx.login({
+    //   success: (res) => {
+    //     console.log(res)
+    //   }
+    // })
   },
 
   /**

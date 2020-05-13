@@ -1,2 +1,38 @@
 <!--pages/service/index.wxml-->
-<text>pages/service/index.wxml</text>
+<view class="service_container">
+	<view class="banner">
+		<image class="banner_img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588678118188&di=e6324de6845cad96c5541b8e16189613&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fb597965516a3068eb3141cfc97010d6dccf985da.jpg"></image>
+	</view>
+	<!-- ---- -->
+	<view class="notice_box">
+		<view class="box" style="padding: 20rpx 0;">
+			<view class="notice_title">通知公告</view>
+			<view class="box_content" bindtap="navigeNotice">查看全部 <image class="right_icon" src="../../images/icon／right@2x (2).png"></image>
+			</view>
+		</view>
+		<view class="box" wx:for="{{noticeData}}" wx:for-item="item" wx:key="index">
+			<view class="box_title">{{item.title}}</view>
+			<view class="box_content">{{item.date}}</view>
+		</view>
+		<!-- ---- -->
+	</view>
+	<view class="line"></view>
+	<!-- ---- -->
+	<view class="notice_box">
+		<view class="box" style="padding: 20rpx 0;">
+			<view class="notice_title">暖心服务</view>
+		</view>
+		<!-- ---- -->
+		<view class="box" style="border-bottom:0;">
+			<view class="phone_box" bindtap="navigePhone">
+      <image class="icon_class" src="../../images/icon-bmhm@2x.png"></image>
+				<text class="box_text">便民号码</text>
+			</view>
+			<view class="weather_box" bindtap="navigeWeather">
+      <image class="icon_class" src="../../images/icon-tqyb@2x.png"></image>
+				<text class="box_text">天气预报</text>
+			</view>
+		</view>
+		<!-- ---- -->
+	</view>
+</view>
