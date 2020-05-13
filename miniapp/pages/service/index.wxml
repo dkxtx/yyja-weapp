@@ -1,7 +1,7 @@
 <!--pages/service/index.wxml-->
 <view class="service_container">
 	<view class="banner">
-		<image class="banner_img" src="../../images/img-banner3@2x.png"></image>
+		<image class="banner_img" src="http://aixingfucdn.mayunio.com/bzamcms1589373317599.png"></image>
 	</view>
 	<!-- ---- -->
 	<view class="notice_box">
