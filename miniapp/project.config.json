@@ -99,6 +99,13 @@
 					"id": -1,
 					"name": "pages/my/fix/index",
 					"pathName": "pages/my/fix/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/bill/index",
+					"pathName": "pages/my/bill/index",
 					"scene": null
 				}
 			]
