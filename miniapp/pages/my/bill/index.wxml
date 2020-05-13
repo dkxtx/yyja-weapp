@@ -1,7 +1,6 @@
 <!--pages/my/bill/index.wxml-->
 <view class="bg-class">
 	<view class="no-order-class" wx:if="{{bills.length == 0}}">暂无账单数据</view>
-
 	<view class="item" wx:for="{{bills}}" wx:for-item="item" wx:key="index">
 		<view class="item-top">
 			<image src="{{item.pic}}" style="width:48rpx;height:48rpx;border-radius:2rpx;margin-top:30rpx;margin-left:30rpx"></image>
