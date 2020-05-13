@@ -9,7 +9,7 @@ Page({
         autoplay: true,
         interval: 5000,
         duration: 1000,
-        newsData:[],
+        newsData: [],
         banners: [{
             "pic": "/images/img-banner2@2x.png"
         }],
@@ -61,7 +61,7 @@ Page({
             success: (res) => {
                 console.log(res)
                 wx.request({
-                    url: getApp().globalData.apiUrl+'/user/wxlogin',
+                    url: getApp().globalData.apiUrl + '/user/wxlogin',
                     method: 'POST',
                     data: {
                         code: res.code
@@ -78,13 +78,13 @@ Page({
             }
         })
     },
-    getNews(){
+    getNews() {
         wx.showLoading({
             title: '加载中',
-            mask:true
-          })
-          wx.request({
-            url: getApp().globalData.apiUrl+'/user/news',
+            mask: true
+        })
+        wx.request({
+            url: getApp().globalData.apiUrl + '/user/news',
             method: 'GET',
             data: {
                 pc_id: 1
@@ -95,22 +95,37 @@ Page({
             },
             success: (result) => {
                 console.log(result)
+                result.data.data.forEach(item => {
+                    item.created = this.format(item.created)
+                })
                 this.setData({
-                  newsData:result.data.data
+                    newsData: result.data.data
                 })
                 wx.hideLoading()
-            },fail:(err) => {
-              wx.hideLoading()
+            }, fail: (err) => {
+                wx.hideLoading()
             }
-          })
+        })
+    },
+
+    format(shijiancuo) {
+        var time = new Date(shijiancuo)
+        var y = time.getFullYear()
+        var m = time.getMonth() + 1
+        var d = time.getDate()
+        return y + '-' + m + '-' + this.add0(d)
+    },
+
+    add0(m) {
+        return m < 10 ? '0' + m : m
     },
 
     // 跳转周边商家
     storeAction() {
         // if (wx.getStorageSync('auth')) {
-            wx.navigateTo({
-                url: '/pages/home/stores/index'
-            })
+        wx.navigateTo({
+            url: '/pages/home/stores/index'
+        })
         // } else {
         //     wx.navigateTo({
         //         url: '/pages/auth/index'
@@ -120,15 +135,15 @@ Page({
 
     // 跳转物业缴费
     payAction() {
-        if (wx.getStorageSync('auth')) {
-            wx.navigateTo({
-                url: '/pages/home/pay/index'
-            })
-        } else {
-            wx.navigateTo({
-                url: '/pages/auth/index'
-            })
-        }
+        // if (wx.getStorageSync('auth')) {
+        wx.navigateTo({
+            url: '/pages/home/pay/index'
+        })
+        // } else {
+        // wx.navigateTo({
+        //     url: '/pages/auth/index'
+        // })
+        // }
 
     },
 
