@@ -1,2 +1,16 @@
 <!--pages/my/fix/index.wxml-->
-<text>pages/my/fix/index.wxml</text>
+<view class="bg-class">
+	<view class="item" wx:for="{{list}}" wx:for-item="item" wx:key="index">
+		<view class="img-class">
+			<image src="{{item.pics[0]}}" style="width:100%;height:100%;border-radius:10rpx"></image>
+			<view class="img-count">{{item.pics.length}}图</view>
+		</view>
+		<view class="content-class">
+			<view class="title">{{item.title}}</view>
+			<view class="time">{{item.time}}</view>
+		</view>
+    <view wx:if="{{item.fixed==true}}" class="fixed-class">
+    <image src="/images/icon-ywx@2x.png" style="width:100%;height:100%"></image>
+    </view>
+	</view>
+</view>
