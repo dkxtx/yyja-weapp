@@ -1,2 +1,179 @@
 <!--pages/my/order/index.wxml-->
-<text>pages/my/order/index.wxml</text>
+<view class="bg-class">
+	<van-tabs swipeable style="width:100%" animated color="#D5B388" active-color="#242424" active="{{ active }}" bind:change="onChange">
+		<van-tab title="全部">
+			<view style="width:100%;">
+				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
+					<view class="item-header">
+						<image src="{{item.store.pic}}" class="store-pic"></image>
+						<view class="store-name">{{item.store.name}}</view>
+						<image class="nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+						<view class="order-status" wx:if="{{item.status == 1}}">待付款</view>
+						<view class="order-status" wx:if="{{item.status == 2}}">待发货</view>
+						<view class="order-status" wx:if="{{item.status == 3}}">待收货</view>
+						<view class="order-status" wx:if="{{item.status == 4}}">已完成</view>
+					</view>
+					<view class="item-content">
+						<view class="goods">
+							<image src="{{item.goods.pic}}" class="goods-pic"></image>
+							<view class="goods-detail">
+								<view class="goods-name">{{item.goods.name}}</view>
+								<view class="goods-tags">{{item.goods.tags}}</view>
+								<view class="goods-price">￥{{item.goods.price}}</view>
+								<view class="goods-count">x{{item.goods.count}}</view>
+							</view>
+						</view>
+						<view class="goods-footer">
+							<view class="goods-footer-left">共{{item.goods.count}}件商品</view>
+							<view class="goods-footer-right">实付：<text style="color:#FD6842;">￥{{item.goods.price*item.goods.count}}</text></view>
+						</view>
+					</view>
+					<view wx:if="{{item.status == 1||item.status == 3}}" class="item-footer">
+						<view class="footer-btn" wx:if="{{item.status == 1}}">去支付</view>
+						<view class="footer-btn" wx:if="{{item.status == 3}}">确认收货</view>
+					</view>
+				</view>
+			</view>
+		</van-tab>
+		<van-tab title="待付款">
+			<!-- <view style="width:100%;height:100rpx;background:yellow">test2</view> -->
+			<view style="width:100%;">
+				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
+					<view class="item-header">
+						<image src="{{item.store.pic}}" class="store-pic"></image>
+						<view class="store-name">{{item.store.name}}</view>
+						<image class="nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+						<view class="order-status" wx:if="{{item.status == 1}}">待付款</view>
+						<view class="order-status" wx:if="{{item.status == 2}}">待发货</view>
+						<view class="order-status" wx:if="{{item.status == 3}}">待收货</view>
+						<view class="order-status" wx:if="{{item.status == 4}}">已完成</view>
+					</view>
+					<view class="item-content">
+						<view class="goods">
+							<image src="{{item.goods.pic}}" class="goods-pic"></image>
+							<view class="goods-detail">
+								<view class="goods-name">{{item.goods.name}}</view>
+								<view class="goods-tags">{{item.goods.tags}}</view>
+								<view class="goods-price">￥{{item.goods.price}}</view>
+								<view class="goods-count">x{{item.goods.count}}</view>
+							</view>
+						</view>
+						<view class="goods-footer">
+							<view class="goods-footer-left">共{{item.goods.count}}件商品</view>
+							<view class="goods-footer-right">实付：<text style="color:#FD6842;">￥{{item.goods.price*item.goods.count}}</text></view>
+						</view>
+					</view>
+					<view wx:if="{{item.status == 1||item.status == 3}}" class="item-footer">
+						<view class="footer-btn" wx:if="{{item.status == 1}}">去支付</view>
+						<view class="footer-btn" wx:if="{{item.status == 3}}">确认收货</view>
+					</view>
+				</view>
+			</view>
+		</van-tab>
+		<van-tab title="待发货">
+			<!-- <view style="width:100%;height:100rpx;background:green">test3</view> -->
+			<view style="width:100%;">
+				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
+					<view class="item-header">
+						<image src="{{item.store.pic}}" class="store-pic"></image>
+						<view class="store-name">{{item.store.name}}</view>
+						<image class="nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+						<view class="order-status" wx:if="{{item.status == 1}}">待付款</view>
+						<view class="order-status" wx:if="{{item.status == 2}}">待发货</view>
+						<view class="order-status" wx:if="{{item.status == 3}}">待收货</view>
+						<view class="order-status" wx:if="{{item.status == 4}}">已完成</view>
+					</view>
+					<view class="item-content">
+						<view class="goods">
+							<image src="{{item.goods.pic}}" class="goods-pic"></image>
+							<view class="goods-detail">
+								<view class="goods-name">{{item.goods.name}}</view>
+								<view class="goods-tags">{{item.goods.tags}}</view>
+								<view class="goods-price">￥{{item.goods.price}}</view>
+								<view class="goods-count">x{{item.goods.count}}</view>
+							</view>
+						</view>
+						<view class="goods-footer">
+							<view class="goods-footer-left">共{{item.goods.count}}件商品</view>
+							<view class="goods-footer-right">实付：<text style="color:#FD6842;">￥{{item.goods.price*item.goods.count}}</text></view>
+						</view>
+					</view>
+					<view wx:if="{{item.status == 1||item.status == 3}}" class="item-footer">
+						<view class="footer-btn" wx:if="{{item.status == 1}}">去支付</view>
+						<view class="footer-btn" wx:if="{{item.status == 3}}">确认收货</view>
+					</view>
+				</view>
+			</view>
+		</van-tab>
+		<van-tab title="待收货">
+			<!-- <view style="width:100%;height:100rpx;background:blue">test4</view> -->
+			<view style="width:100%;">
+				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
+					<view class="item-header">
+						<image src="{{item.store.pic}}" class="store-pic"></image>
+						<view class="store-name">{{item.store.name}}</view>
+						<image class="nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+						<view class="order-status" wx:if="{{item.status == 1}}">待付款</view>
+						<view class="order-status" wx:if="{{item.status == 2}}">待发货</view>
+						<view class="order-status" wx:if="{{item.status == 3}}">待收货</view>
+						<view class="order-status" wx:if="{{item.status == 4}}">已完成</view>
+					</view>
+					<view class="item-content">
+						<view class="goods">
+							<image src="{{item.goods.pic}}" class="goods-pic"></image>
+							<view class="goods-detail">
+								<view class="goods-name">{{item.goods.name}}</view>
+								<view class="goods-tags">{{item.goods.tags}}</view>
+								<view class="goods-price">￥{{item.goods.price}}</view>
+								<view class="goods-count">x{{item.goods.count}}</view>
+							</view>
+						</view>
+						<view class="goods-footer">
+							<view class="goods-footer-left">共{{item.goods.count}}件商品</view>
+							<view class="goods-footer-right">实付：<text style="color:#FD6842;">￥{{item.goods.price*item.goods.count}}</text></view>
+						</view>
+					</view>
+					<view wx:if="{{item.status == 1||item.status == 3}}" class="item-footer">
+						<view class="footer-btn" wx:if="{{item.status == 1}}">去支付</view>
+						<view class="footer-btn" wx:if="{{item.status == 3}}">确认收货</view>
+					</view>
+				</view>
+			</view>
+		</van-tab>
+		<van-tab title="已完成">
+			<!-- <view style="width:100%;height:100rpx;background:orange">test5</view> -->
+			<view style="width:100%;">
+				<view wx:for="{{orders}}" wx:for-item="item" wx:key="index" bind:tap="onClickOrder" data-id='{{item._id}}' style="margin-top:20rpx">
+					<view class="item-header">
+						<image src="{{item.store.pic}}" class="store-pic"></image>
+						<view class="store-name">{{item.store.name}}</view>
+						<image class="nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+						<view class="order-status" wx:if="{{item.status == 1}}">待付款</view>
+						<view class="order-status" wx:if="{{item.status == 2}}">待发货</view>
+						<view class="order-status" wx:if="{{item.status == 3}}">待收货</view>
+						<view class="order-status" wx:if="{{item.status == 4}}">已完成</view>
+					</view>
+					<view class="item-content">
+						<view class="goods">
+							<image src="{{item.goods.pic}}" class="goods-pic"></image>
+							<view class="goods-detail">
+								<view class="goods-name">{{item.goods.name}}</view>
+								<view class="goods-tags">{{item.goods.tags}}</view>
+								<view class="goods-price">￥{{item.goods.price}}</view>
+								<view class="goods-count">x{{item.goods.count}}</view>
+							</view>
+						</view>
+						<view class="goods-footer">
+							<view class="goods-footer-left">共{{item.goods.count}}件商品</view>
+							<view class="goods-footer-right">实付：<text style="color:#FD6842;">￥{{item.goods.price*item.goods.count}}</text></view>
+						</view>
+					</view>
+					<view wx:if="{{item.status == 1||item.status == 3}}" class="item-footer">
+						<view class="footer-btn" wx:if="{{item.status == 1}}">去支付</view>
+						<view class="footer-btn" wx:if="{{item.status == 3}}">确认收货</view>
+					</view>
+				</view>
+			</view>
+		</van-tab>
+	</van-tabs>
+</view>

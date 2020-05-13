@@ -1,0 +1,51 @@
+<!--pages/my/oder_detail/index.wxml-->
+<view class="bg-class">
+	<view class="header-status" wx:if="{{order.status === 1}}">待付款</view>
+	<view class="header-status" wx:if="{{order.status === 2}}">待发货</view>
+	<view class="header-status" wx:if="{{order.status === 3}}">待收货</view>
+	<view class="header-status" wx:if="{{order.status === 4}}">已完成</view>
+	<view class="address-item">
+		<view class="address">{{order.address.provinceName+order.address.cityName+order.address.countyName}}</view>
+		<view class="address-detail">
+			<image src="/images/icon-dw@2x.png" style="width:24rpx;height:32rpx;margin-right:10rpx"></image>{{order.address.detailInfo}}
+		</view>
+		<view class="user">{{order.address.userName}}<text style="margin-left:10rpx">{{order.address.telNumber }}</text></view>
+	</view>
+	<view style="margin-top:20rpx">
+		<view class="item-header" bindtap="onClickStore">
+			<image src="{{order.store.pic}}" class="store-pic"></image>
+			<view class="store-name">{{order.store.name}}</view>
+			<image class="nav-icon" src="/images/arrow.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+		</view>
+		<view class="item-content">
+			<view class="goods" bindtap="onClickGoods">
+				<image src="{{order.goods.pic}}" class="goods-pic"></image>
+				<view class="goods-detail">
+					<view class="goods-name">{{order.goods.name}}</view>
+					<view class="goods-tags">{{order.goods.tags}}</view>
+					<view class="goods-price">￥{{order.goods.price}}</view>
+					<view class="goods-count">x{{order.goods.count}}</view>
+				</view>
+			</view>
+			<view class="goods-footer">
+				<view class="goods-footer-left">共{{order.goods.count}}件商品</view>
+				<view class="goods-footer-right">实付：<text style="color:#FD6842;">￥{{order.goods.price*order.goods.count}}</text></view>
+			</view>
+		</view>
+	</view>
+	<view class="content-class">
+		<view class="order-content">
+			<view>订单编号：{{order.order_no}}</view>
+			<view class="copy-class">复制</view>
+		</view>
+		<view class="order-content" style="margin-top:10rpx">支付方式：微信支付</view>
+		<view class="order-content" style="margin-top:10rpx">下单时间：{{order.create_at}}</view>
+		<view class="order-content" style="margin-top:10rpx">发货时间 ：{{order.shipping_time}}</view>
+		<view class="order-content" style="margin-top:10rpx">物流公司：{{order.shipping_name}}</view>
+		<view class="order-content" style="margin-top:10rpx">快递单号：{{order.shipping_no}}</view>
+	</view>
+  <view class="tab-footer" wx:if="{{order.status==1||order.status==3}}">
+  	<view class="footer-btn" wx:if="{{order.status == 1}}" bindtap="onClickPay">去支付</view>
+						<view class="footer-btn" wx:if="{{order.status == 3}}" bindtap="onClickTake">确认收货</view>
+  </view>
+</view>
