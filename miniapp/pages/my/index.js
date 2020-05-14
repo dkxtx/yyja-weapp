@@ -77,6 +77,11 @@ Page({
       url: '/pages/my/bill/index' 
     })
   },
+  onClickSetting(){
+    wx.navigateTo({
+      url: '/pages/my/setting/index'+'?data='+JSON.stringify(this.data.user_info),
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

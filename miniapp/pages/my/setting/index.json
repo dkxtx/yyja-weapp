@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-cell": "../../../vant-weapp/cell/index"
+  },
+  "navigationBarTitleText": "个人资料"
 }
