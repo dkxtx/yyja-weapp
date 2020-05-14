@@ -10,7 +10,9 @@ Page({
     chooseDate: '',
     startDate: '',
     endDate: '',
-    chooseTime: '08:00'
+    chooseTime: '08:00',
+    name: '',
+    phone: ''
   },
 
   /**
@@ -55,10 +57,37 @@ Page({
     })
   },
 
+  writeName(e) {
+    this.setData({
+      name: e.detail.value.replace(/\s+/g, ""),
+    })
+  },
+
+  writePhone(e) {
+    this.setData({
+      phone: e.detail.value.replace(/\s+/g, ""),
+    })
+  },
+
   sureSend() {
     if (this.data.text_count === 0) {
       wx.showToast({
         title: '请输入问题详情',
+        icon: "none"
+      })
+      return
+    }
+    if (this.data.name === '' || this.data.phone === '') {
+      wx.showToast({
+        title: '请完善报修人信息',
+        icon: "none"
+      })
+      return
+    }
+    let reg = /^1[3456789]\d{9}$/
+    if (!reg.test(this.data.phone)) {
+      wx.showToast({
+        title: '请输入正确的电话号码',
         icon: "none"
       })
       return
@@ -71,7 +100,7 @@ Page({
       wx.showToast({
         title: '提交成功'
       })
-    },1000)
+    }, 1000)
     setTimeout(() => {
       wx.navigateBack({})
     }, 2500)

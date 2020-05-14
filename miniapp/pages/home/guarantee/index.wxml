@@ -6,11 +6,11 @@
 	</view>
 	<view class="box" style="margin-top:30rpx;">
 		<view class="box_title">报修人</view>
-		<view class="box_content">潘波初</view>
+		<input class="box_content" value="{{name}}" placeholder="请输入报修人姓名" type="text" bindinput="writeName"></input>
 	</view>
 	<view class="box">
 		<view class="box_title">电话</view>
-		<view class="box_content">15967236417</view>
+		<input class="box_content" value="{{phone}}" placeholder="请输入报修人电话" type="number" bindinput="writePhone"></input>
 	</view>
 	<view class="box">
 		<view class="box_title">预约日期</view>
