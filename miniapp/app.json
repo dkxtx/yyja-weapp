@@ -19,7 +19,8 @@
     "pages/my/bill/index",
     "pages/home/news/index",
     "pages/home/new_detail/index",
-    "pages/my/setting/index"
+    "pages/my/setting/index",
+    "pages/home/service/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
