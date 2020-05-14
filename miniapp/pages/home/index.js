@@ -153,6 +153,13 @@ Page({
         })
     },
 
+    // 跳转在线服务
+    serviceAction() {
+        wx.navigateTo({
+            url: '/pages/home/service/index'
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

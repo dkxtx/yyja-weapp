@@ -1,0 +1,13 @@
+<!--pages/home/service/index.wxml-->
+<view class="guarantee_container">
+	<view class="top_box">
+		<button class="top_btn" bindtap="chooseTab" data-index="0" style="width:232rpx;{{clickTab==0 ? 'color:#FFFFFF;background:#D5B388;' : ''}}">社区反馈</button>
+		<button class="top_btn" bindtap="chooseTab" data-index="1" style="width:232rpx;{{clickTab==1 ? 'color:#FFFFFF;background:#D5B388;' : ''}}">社区建议</button>
+		<button class="top_btn" bindtap="chooseTab" data-index="2" style="width:210rpx;{{clickTab==2 ? 'color:#FFFFFF;background:#D5B388;' : ''}}">投诉</button>
+	</view>
+	<view class="text_box">
+		<textarea class="text_area" value="{{service}}" maxlength="500" placeholder="问题描述的越清楚越好喔" placeholder-class="text_placeholder" bindinput="textInp"></textarea>
+		<view class="text_count">{{text_count}}/500</view>
+	</view>
+	<button bindtap="sureSend" style="width: 90%;" class="send_btn">提交</button>
+</view>
