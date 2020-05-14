@@ -20,7 +20,8 @@
     "pages/home/news/index",
     "pages/home/new_detail/index",
     "pages/my/setting/index",
-    "pages/home/service/index"
+    "pages/home/service/index",
+    "pages/my/switch/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
