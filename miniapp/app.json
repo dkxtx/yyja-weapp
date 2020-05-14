@@ -18,7 +18,8 @@
     "pages/my/oder_detail/index",
     "pages/my/bill/index",
     "pages/home/news/index",
-    "pages/home/new_detail/index"
+    "pages/home/new_detail/index",
+    "pages/my/setting/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
