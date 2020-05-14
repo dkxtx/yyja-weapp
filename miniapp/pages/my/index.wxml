@@ -13,7 +13,7 @@
 					<view class="user-tag">业主</view>
 				</view>
 			</view>
-			<view class="header-setting">
+			<view class="header-setting" bindtap="onClickSetting">
 				<image src="/images/icon-sz@2x.png" style="width:48rpx;height:48rpx"></image>
 			</view>
 		</view>

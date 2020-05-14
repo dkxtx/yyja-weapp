@@ -71,6 +71,7 @@ Page({
                     },
                     success: (result) => {
                         wx.setStorageSync('token', result.data.data.token)
+                        wx.setStorageSync('user_info', result.data.data)
                         console.log(result)
                         this.getNews()
                     }

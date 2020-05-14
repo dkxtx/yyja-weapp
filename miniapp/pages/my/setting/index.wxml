@@ -1,2 +1,8 @@
 <!--pages/my/setting/index.wxml-->
-<text>pages/my/setting/index.wxml</text>
+<view class="bg-class">
+	<van-cell title="头像">
+		<image src="{{user_info.avatarUrl}}" slot="right-icon" style="width:112rpx;height:112rpx;border-radius:56rpx"></image>
+	</van-cell>
+  <van-cell title="昵称" value="{{user_info.nickName}}"  value-class="cell-value" />
+  <van-cell title="账号" value="{{local_user_info.user.id}}" value-class="cell-value" />
+</view>

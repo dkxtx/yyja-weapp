@@ -9,6 +9,13 @@
   box-sizing: border-box;
 } 
 
+.bg-class {
+  background-color: #F5F5F4;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
 .line{
   width: 100%;
   /* margin-top: 20rpx; */
