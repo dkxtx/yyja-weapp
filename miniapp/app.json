@@ -21,7 +21,10 @@
     "pages/home/new_detail/index",
     "pages/my/setting/index",
     "pages/home/service/index",
-    "pages/my/switch/index"
+    "pages/my/switch/index",
+    "pages/my/village/index",
+    "pages/my/unit/index",
+    "pages/my/house/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

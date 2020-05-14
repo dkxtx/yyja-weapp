@@ -20,7 +20,7 @@
 		<view wx:if="{{is_login == true}}" class="header-location">
 			<image style="width:24rpx;height:32rpx;margin-left:20rpx;margin-top:18rpx" src="/images/icon-dw@2x.png"></image>
 			<view class="location-class">中德英伦联邦1栋二单元1301</view>
-			<view class="switch-btn">切换房产</view>
+			<view class="switch-btn" bindtap="onClickSwitch">切换房产</view>
 		</view>
 	</view>
 	<view class="line"></view>

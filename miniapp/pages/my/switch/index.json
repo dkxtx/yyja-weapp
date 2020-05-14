@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-icon": "../../../vant-weapp/icon/index"
+  },
+  "navigationBarTitleText": "切换房产"
 }
