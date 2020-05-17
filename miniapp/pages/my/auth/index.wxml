@@ -1,0 +1,6 @@
+<!--pages/my/auth/index.wxml-->
+<view class="auth_container">
+	<view class="auth_title">微信授权/登录，让我们更好的为您服务！</view>
+  <button wx:if="{{!hasInfo}}" style="width: 80%;" class="authBtn" bindgetuserinfo="getUserInfo" open-type="getUserInfo">获取您的基本信息</button>
+  <button wx:else style="width: 80%;" class="authBtn" bindgetphonenumber="getPhone" open-type="getPhoneNumber">微信手机号快速登录</button>
+</view>

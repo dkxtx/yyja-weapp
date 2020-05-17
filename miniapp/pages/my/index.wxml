@@ -40,5 +40,6 @@
 	<van-cell title="我的报修" is-link icon="/images/icon-wdbx@2x.png" bindtap="onClickFix"  />
 	<van-cell title="我的账单" is-link icon="/images/icon-wdjf@2x.png" bindtap="onClickBill" />
 	<van-cell title="关于" is-link icon="/images/icon-gy@2x.png" />
-	<button class="login-out-class" bindgetuserinfo="getUserInfo" open-type="getUserInfo">{{is_login==true?'退出登录':'登录/注册'}}</button>
+	<button class="login-out-class" bindtap="userLogin">{{is_login==true?'退出登录':'登录/注册'}}</button>
+	<!-- <button class="login-out-class" bindgetuserinfo="getUserInfo" open-type="getUserInfo">{{is_login==true?'退出登录':'登录/注册'}}</button> -->
 </view>

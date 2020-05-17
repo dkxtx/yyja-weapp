@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/my/auth/index",
     "pages/home/guarantee/index",
     "pages/service/phone/index",
     "pages/service/index",
