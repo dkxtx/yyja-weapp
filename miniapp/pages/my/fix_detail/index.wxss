@@ -1,0 +1,54 @@
+/* pages/my/fix_detail/index.wxss */
+.item-bg{
+  width: 90%;
+  margin-left: 5%;
+  background:#F5F5F4;
+  border-radius:10rpx;
+}
+
+.item-title{
+  width: 90%;
+  margin-left: 5%;
+  border-bottom: 2rpx solid rgba(190,190,190,1);
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.content{
+  width: 90%;
+  margin-left: 5%;
+  padding: 30rpx 0;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+
+.imgs{
+  width: 90%;
+  margin-left: 5%;
+  padding: 30rpx 0;
+  display: flex;
+}
+
+.footer{
+  width: 90%;
+  margin-left: 5%;
+  border-top: 2rpx solid rgba(190,190,190,1);
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(36,36,36,1);
+}
+
+.footer-title{
+  width: 50%;
+}
+
+.footer-time{
+  width: 50%;
+  text-align: right;
+}

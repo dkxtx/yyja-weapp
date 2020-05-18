@@ -26,7 +26,8 @@
     "pages/my/village/index",
     "pages/my/unit/index",
     "pages/my/house/index",
-    "pages/my/communities/index"
+    "pages/my/communities/index",
+    "pages/my/fix_detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
