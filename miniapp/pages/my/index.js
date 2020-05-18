@@ -37,9 +37,9 @@ Page({
         console.log('userinfo', result)
         wx.setStorageSync('user_info', result.data.data)
         app.globalData.userInfo = result.data.data
-        if (result.data.data.commodity_name) {
+        if (result.data.data.community_name) {
           this.setData({
-            address: result.data.data.commodity_name + result.data.data.room,
+            address: result.data.data.community_name + result.data.data.room,
             has_house: true
           })
         }

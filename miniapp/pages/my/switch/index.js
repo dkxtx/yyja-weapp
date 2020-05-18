@@ -41,7 +41,7 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success: (result) => {
-        if (result.data.data.commodity_name) {
+        if (result.data.data.community_name) {
           this.setData({
             community: result.data.data,
             hasHose: true
@@ -98,11 +98,8 @@ Page({
         wx.showToast({
           title: '选择成功',
           icon: 'none',
-          duration: 3000
+          duration: 2000
         })
-        setTimeout(() => {
-          wx.navigateBack({})
-        }, 3000);
       }
     })
   },

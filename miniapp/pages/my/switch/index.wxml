@@ -5,10 +5,10 @@
 		<view class="current-title">当前房产</view>
 		<view class="no-hose-name" wx:if="{{!hasHose}}">当前暂未选择您的房产</view>
 		<view wx:else>
-			<view class="house-name">{{community.commodity_name}}
+			<view class="house-name">{{community.community_name}}
 				<text class="tag">{{community.role === 1 ? '业主' : community.role === 2 ? '家人' : '租户'}}</text>
 			</view>
-			<view class="unit">{{community.commodity_name + community.room}}</view>
+			<view class="unit">{{community.community_name + community.room}}</view>
 		</view>
 	</view>
 	<view class="seciton">其他房产</view>
