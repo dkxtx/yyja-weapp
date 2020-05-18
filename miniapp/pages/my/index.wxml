@@ -8,9 +8,9 @@
 					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">登录/注册</view>
 				</view>
 				<view wx:if="{{is_login == true}}" style="display:flex">
-					<image src="{{user_info.avatarUrl}}" style="width:110rpx;height:110rpx;border-radius:55rpx"></image>
-					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">{{user_info.nickName}}</view>
-					<view class="user-tag">{{user_info.role === 1 ? '业主' : user_info.role === 2 ? '家人' : '租户'}}</view>
+					<image src="{{user_info.avatar}}" style="width:110rpx;height:110rpx;border-radius:55rpx"></image>
+					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">{{user_info.nick_name}}</view>
+					<view class="user-tag">{{community.role === 1 ? '业主' : community.role === 2 ? '家人' : '租户'}}</view>
 				</view>
 			</view>
 			<view class="header-setting" bindtap="onClickSetting">
@@ -20,7 +20,7 @@
 		<view wx:if="{{is_login == true}}" class="header-location">
 			<image style="width:24rpx;height:32rpx;margin-left:20rpx;" src="/images/icon-dw@2x.png"></image>
 			<view class="location-class" wx:if="{{!has_house}}">当前未选择房产</view>
-			<view class="location-class" wx:else>{{adress}}</view>
+			<view class="location-class" wx:else>{{address}}</view>
 			<view class="switch-btn" bindtap="onClickSwitch">{{!has_house ? '选择房产' : '切换房产'}}</view>
 		</view>
 	</view>

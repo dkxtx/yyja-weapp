@@ -5,18 +5,18 @@
 		<view class="current-title">当前房产</view>
 		<view class="no-hose-name" wx:if="{{!hasHose}}">当前暂未选择您的房产</view>
 		<view wx:else>
-			<view class="house-name">{{userInfo.commodity_name}}
-				<text class="tag">业主</text>
+			<view class="house-name">{{community.commodity_name}}
+				<text class="tag">{{community.role === 1 ? '业主' : community.role === 2 ? '家人' : '租户'}}</text>
 			</view>
-			<view class="unit">{{userInfo.room}}</view>
+			<view class="unit">{{community.commodity_name + community.room}}</view>
 		</view>
 	</view>
 	<view class="seciton">其他房产</view>
 	<view class="item" wx:for="{{house_list}}" wx:for-item="item" wx:key="index">
-		<view class="item-title">{{item.title}} <text class="item-tag">{{item.tag}}</text></view>
-		<view class="item-unit">{{item.unit}}</view>
+		<view class="item-title">{{item.community_name}} <text class="item-tag">{{item.role === 1 ? '业主' : item.role === 2 ? '家人' : '租户'}}</text></view>
+		<view class="item-unit">{{item.room}}</view>
 		<view class="switch-item">
-			<van-icon bindtap="changeProperty" data-id="{{item._id}}" name="exchange" size="20rpx" color="#D5B388" style="border:2rpx solid #D5B388;border-radius:50%;padding:10rpx;margin-right:10rpx" />{{!hasHose ? '选择': '切换'}}</view>
+			<van-icon bindtap="changeProperty" data-id="{{item.user_community_id}}" name="exchange" size="20rpx" color="#D5B388" style="border:2rpx solid #D5B388;border-radius:50%;padding:10rpx;margin-right:10rpx" />{{!hasHose ? '选择': '切换'}}</view>
 	</view>
 	<view class="add-class" bindtap="onClickAdd">
 		<van-icon name="add-o" size="30rpx" color="#D5B388" style="margin-right:10rpx"/>新增房产</view>

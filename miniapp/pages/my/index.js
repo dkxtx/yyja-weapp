@@ -6,53 +6,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    adress: '',
+    community: app.globalData.community,
+    address: '',
     has_house: false,
     is_login: false,
+    auth: false,
     user_info: {}
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面显示
    */
-  onLoad: function (options) {
-    console.log("++++onLoad++++++")
-    console.log(app.globalData.wxUserInfo)
-    if (app.globalData.wxUserInfo && app.globalData.phone) {
-      this.setData({
-        is_login: true,
-        user_info: app.globalData.wxUserInfo
-      })
-      this.getUserInfo()
-    }
+  onShow: function () {
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
+    this.getUserInfo()
   },
+
   getUserInfo() {
     wx.request({
       url: app.globalData.apiUrl + '/user/info',
       method: 'GET',
-      header: app.globalData.header,
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
       success: (result) => {
-        console.log(result)
+        console.log('userinfo', result)
         wx.setStorageSync('user_info', result.data.data)
         app.globalData.userInfo = result.data.data
-        app.globalData.adress = result.data.data.commodity_name + result.data.data.room
-        this.setData({
-          address: app.globalData.adress
-        })
+        if (result.data.data.commodity_name) {
+          this.setData({
+            address: result.data.data.commodity_name + result.data.data.room,
+            has_house: true
+          })
+        }
+        if (result.data.data.phone) {
+          this.setData({
+            user_info: result.data.data,
+            is_login: true,
+            auth: true
+          })
+        }
+        wx.hideLoading({})
       }
     })
   },
-  // onShow: function () {
-  //   console.log("++++onShow++++++")
-  //   console.log(wx.getStorageSync('fromUserAuth'))
-  //   if (wx.getStorageSync('fromUserAuth') == 1) {
-  //     this.setData({
-  //       user_info: app.globalData.wxUserInfo,
-  //       is_login: true
-  //     })
-  //     wx.removeStorageSync('fromUserAuth')
-  //   }
-  // },
+
   userLogin() {
     if (this.data.is_login) {
       this.setData({
@@ -60,20 +62,19 @@ Page({
         is_login: false
       })
     } else {
-      if (!app.globalData.wxUserInfo && !app.globalData.phone) {
+      if (!this.data.auth) {
         wx.navigateTo({
           url: 'auth/index',
         })
       } else {
         this.setData({
-          user_info: app.globalData.wxUserInfo,
+          user_info: app.globalData.userInfo,
           is_login: true
         })
       }
     }
   },
   onClickOrder(event) {
-    console.log(event.target.dataset.type)
     if (this.data.is_login === false) {
       return wx.showToast({
         title: '请登录账号',
@@ -127,13 +128,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
   },
 

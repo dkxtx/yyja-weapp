@@ -1,5 +1,5 @@
 // pages/my/auth/index.js
-var app = getApp()
+var app = getApp();
 Page({
 
   /**
@@ -42,7 +42,7 @@ Page({
   },
 
   getPhone(e) {
-    // app.globalData.phone = res.phone
+    console.log(e)
     if (!e.detail.hasOwnProperty('encryptedData')) {
       wx.showToast({
         title: '请使用手机号进行登录',
@@ -50,24 +50,56 @@ Page({
       })
       return
     }
-    this.saveUserInfo()
+    wx.login({
+      success: (res) => {
+        let data = {
+          encrypted_data: e.detail.encryptedData,
+          iv: e.detail.iv,
+          code: res.code
+        }
+        wx.request({
+          url: app.globalData.apiUrl + '/user/phone/dncrypt',
+          method: 'POST',
+          data: data,
+          header: {
+            'content-type': 'application/json', // 默认值
+            'token': wx.getStorageSync('token')
+          },
+          success: (result) => {
+            console.log(result)
+            app.globalData.phone = result.data.data.phone
+            this.saveUserInfo()
+          }
+        })
+      }
+    })
     wx.setStorageSync('fromUserAuth', 1)
-    wx.navigateBack({})
   },
 
   saveUserInfo() {
+    console.log(app.globalData)
     var params = {
-      avatar: app.globalData.wxUserInfo.avatar,
-      nick_name: app.globalData.wxUserInfo.nick_name,
+      avatar: app.globalData.wxUserInfo.avatarUrl,
+      nick_name: app.globalData.wxUserInfo.nickName,
       phone: app.globalData.phone
     }
     wx.request({
       url: app.globalData.apiUrl + '/user/modify',
-      method: 'GET',
+      method: 'POST',
       data: params,
-      header: app.globalData.header,
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
       success: (res) => {
         console.log(res)
+        wx.showToast({
+          title: '登录成功',
+          icon: 'none'
+        })
+        wx.switchTab({
+          url: '../index',
+        })
       }
     })
   },
