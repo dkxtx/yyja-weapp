@@ -13,8 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.userInfo)
-    if (app.globalData.userInfo) {
+    console.log(app.globalData.wxUserInfo)
+    if (app.globalData.wxUserInfo) {
       this.setData({
         hasInfo: true
       })
@@ -26,7 +26,7 @@ Page({
     wx.getUserInfo({
       success: function (res) {
         console.log(res)
-        app.globalData.userInfo = res.userInfo
+        app.globalData.wxUserInfo = res.userInfo
         _self.setData({
           hasInfo: true
         })
@@ -57,8 +57,8 @@ Page({
 
   saveUserInfo() {
     var params = {
-      avatar: app.globalData.userInfo.avatar,
-      nick_name: app.globalData.userInfo.nick_name,
+      avatar: app.globalData.wxUserInfo.avatar,
+      nick_name: app.globalData.wxUserInfo.nick_name,
       phone: app.globalData.phone
     }
     wx.request({

@@ -10,7 +10,7 @@
 				<view wx:if="{{is_login == true}}" style="display:flex">
 					<image src="{{user_info.avatarUrl}}" style="width:110rpx;height:110rpx;border-radius:55rpx"></image>
 					<view style="font-size:44rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);margin-left:20rpx">{{user_info.nickName}}</view>
-					<view class="user-tag">业主</view>
+					<view class="user-tag">{{user_info.role === 1 ? '业主' : user_info.role === 2 ? '家人' : '租户'}}</view>
 				</view>
 			</view>
 			<view class="header-setting" bindtap="onClickSetting">
@@ -20,7 +20,7 @@
 		<view wx:if="{{is_login == true}}" class="header-location">
 			<image style="width:24rpx;height:32rpx;margin-left:20rpx;" src="/images/icon-dw@2x.png"></image>
 			<view class="location-class" wx:if="{{!has_house}}">当前未选择房产</view>
-			<view class="location-class" wx:else>中德英伦联邦1栋二单元1301</view>
+			<view class="location-class" wx:else>{{adress}}</view>
 			<view class="switch-btn" bindtap="onClickSwitch">{{!has_house ? '选择房产' : '切换房产'}}</view>
 		</view>
 	</view>
@@ -32,13 +32,13 @@
 		</view>
 	</view>
 	<van-grid column-num="5">
-		<van-grid-item icon="/images/icon-dqr@2x.png" text="全部订单" bindtap="onClickOrder" data-type='{{0}}'/>
-		<van-grid-item icon="/images/icon-dfk@2x.png" text="待付款" bindtap="onClickOrder" data-type='{{1}}'/>
-		<van-grid-item icon="/images/icon-yfh@2x.png" text="待发货" bindtap="onClickOrder" data-type='{{2}}'/>
-		<van-grid-item icon="/images/icon-dsh@2x.png" text="待收货" bindtap="onClickOrder" data-type='{{3}}'/>
-		<van-grid-item icon="/images/icon-ywc@2x.png" text="已完成" bindtap="onClickOrder" data-type='{{4}}'/>
+		<van-grid-item icon="/images/icon-dqr@2x.png" text="全部订单" bindtap="onClickOrder" data-type='{{0}}' />
+		<van-grid-item icon="/images/icon-dfk@2x.png" text="待付款" bindtap="onClickOrder" data-type='{{1}}' />
+		<van-grid-item icon="/images/icon-yfh@2x.png" text="待发货" bindtap="onClickOrder" data-type='{{2}}' />
+		<van-grid-item icon="/images/icon-dsh@2x.png" text="待收货" bindtap="onClickOrder" data-type='{{3}}' />
+		<van-grid-item icon="/images/icon-ywc@2x.png" text="已完成" bindtap="onClickOrder" data-type='{{4}}' />
 	</van-grid>
-	<van-cell title="我的报修" is-link icon="/images/icon-wdbx@2x.png" bindtap="onClickFix"  />
+	<van-cell title="我的报修" is-link icon="/images/icon-wdbx@2x.png" bindtap="onClickFix" />
 	<van-cell title="我的账单" is-link icon="/images/icon-wdjf@2x.png" bindtap="onClickBill" />
 	<van-cell title="关于" is-link icon="/images/icon-gy@2x.png" />
 	<button class="login-out-class" bindtap="userLogin">{{is_login==true?'退出登录':'登录/注册'}}</button>
