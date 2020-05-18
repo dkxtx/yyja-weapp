@@ -16,7 +16,7 @@
 		<view class="item-title">{{item.title}} <text class="item-tag">{{item.tag}}</text></view>
 		<view class="item-unit">{{item.unit}}</view>
 		<view class="switch-item">
-			<van-icon bindtap="changeProperty" data-id="{{item._id}}" name="exchange" size="20rpx" color="#D5B388" style="border:2rpx solid #D5B388;border-radius:50%;padding:10rpx;margin-right:10rpx" />切换</view>
+			<van-icon bindtap="changeProperty" data-id="{{item._id}}" name="exchange" size="20rpx" color="#D5B388" style="border:2rpx solid #D5B388;border-radius:50%;padding:10rpx;margin-right:10rpx" />{{!hasHose ? '选择': '切换'}}</view>
 	</view>
 	<view class="add-class">
 		<van-icon name="add-o" size="30rpx" color="#D5B388" style="margin-right:10rpx" />新增房产</view>

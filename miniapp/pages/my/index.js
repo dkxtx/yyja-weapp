@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    has_house: false,
     is_login: false,
     user_info: {}
   },

@@ -2,21 +2,21 @@
 <view class="phone_container">
 	<view class="top_box">
 		<image class="top_icon" src="../../../images/icon-wdxq@2x.png" lazy-load="false" binderror="" bindload=""></image>
-		<text class="top_text">中德英伦联邦1栋二单元1301</text>
+		<text class="top_text">{{adress}}</text>
 	</view>
 	<!-- ---- -->
 	<view class="line"></view>
 	<!-- ---- -->
 	<view class="center_box">
 		<view class="box_title">物业服务热线<view class="bottom_line"></view></view>
-    <view class="box_phone">028-87726688</view>
+    <view class="box_phone" bindtap="makePhone" data-phone="{{propertyPhone}}">{{propertyPhone}}</view>
 	</view>
 	<!-- ---- -->
 	<view class="line"></view>
 	<!-- ---- -->
 	<view class="bottom_box">
 		<view class="box_title">生活服务热线<view class="bottom_line"></view></view>
-    <view class="box" wx:for="{{phoneData}}" wx:key="index" wx:for-item="item">
+    <view class="box" wx:for="{{phoneData}}" wx:key="index" wx:for-item="item" bindtap="makePhone" data-phone="{{item.phone}}">
       <view class="box_left">{{item.title}}</view>
       <view class="box_right">{{item.phone}}</view>
     </view>

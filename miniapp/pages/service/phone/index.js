@@ -1,10 +1,12 @@
 // pages/service/phone/index.js
+var app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    adress: app.globalData.adress,
+    propertyPhone: '028-87726688',
     phoneData: [
       {
         title: '华阳街道办',
@@ -19,6 +21,13 @@ Page({
         phone: '028-88667788'
       }
     ]
+  },
+
+  makePhone(e) {
+    // console.log(e.currentTarget.dataset.phone)
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone,
+    })
   },
 
   /**
