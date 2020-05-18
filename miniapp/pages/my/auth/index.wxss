@@ -1,0 +1,29 @@
+/* pages/my/auth/index.wxss */
+.auth_title {
+  text-align: center;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  margin-top: 10%;
+}
+
+.authBtn {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 100rpx;
+  background: rgba(213, 179, 136, 1);
+  border-radius: 8rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 70rpx;
+  margin-top: 70rpx;
+}
+
+.authBtn::after {
+  border-width: 0;
+  border-radius: 8rpx;
+}

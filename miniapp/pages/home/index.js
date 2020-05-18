@@ -45,6 +45,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        wx.showLoading({
+            title: '加载中',
+            icon: 'none'
+        })
         wx.getSystemInfo({
             success: (result) => {
                 const width = result.windowWidth;
@@ -56,7 +60,14 @@ Page({
             },
             fail: () => { },
             complete: () => { }
-        });
+        })
+        if (!wx.getStorageSync('token')) {
+            this.userLogin()
+        } else {
+            this.getNews()
+        }
+    },
+    userLogin() {
         wx.login({
             success: (res) => {
                 console.log(res)
@@ -96,6 +107,11 @@ Page({
             },
             success: (result) => {
                 console.log(result)
+                if (result.data.code !== 200) {
+                    this.userLogin()
+                    return
+                }
+                wx.hideLoading({})
                 result.data.data.forEach(item => {
                     item.created = this.format(item.created)
                 })

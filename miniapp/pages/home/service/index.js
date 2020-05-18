@@ -17,6 +17,35 @@ Page({
 
   },
 
+  textInp(e) {
+    this.setData({
+      service: e.detail.value.replace(/\s+/g, ""),
+      text_count: /\s+/g.test(e.detail.value) ? e.detail.value.length - 1 : e.detail.value.length
+    })
+  },
+
+  sureSend() {
+    if (this.data.text_count === 0) {
+      wx.showToast({
+        title: '请输入问题描述',
+        icon: "none"
+      })
+      return
+    }
+    wx.showLoading({
+      title: '提交中'
+    })
+    setTimeout(() => {
+      wx.hideLoading({})
+      wx.showToast({
+        title: '提交成功'
+      })
+    }, 1000)
+    setTimeout(() => {
+      wx.navigateBack({})
+    }, 2500)
+  },
+
   chooseTab(e) {
     this.setData({
       clickTab: e.currentTarget.dataset.index

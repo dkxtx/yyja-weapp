@@ -15,74 +15,109 @@ Page({
    */
   onLoad: function (options) {
     console.log(app.globalData.userInfo)
-    if (app.globalData.userInfo) {
+    if (app.globalData.userInfo && app.globalData.phone) {
       this.setData({
         is_login: true,
         user_info: app.globalData.userInfo
       })
     }
   },
-  getUserInfo() {
-    var _self = this
+  userLogin() {
     if (this.data.is_login) {
-      app.globalData.userInfo = null
-      _self.setData({
+      this.setData({
+        user_info: {},
         is_login: false
       })
     } else {
-      wx.getUserInfo({
-        success: function (res) {
-          console.log(res)
-          app.globalData.userInfo = res.userInfo
-          _self.setData({
-            user_info: app.globalData.userInfo,
-            is_login: true
-          })
-        }
-      })
+      if (!app.globalData.userInfo && !app.globalData.phone) {
+        wx.navigateTo({
+          url: 'auth/index',
+        })
+      } else {
+        this.setData({
+          user_info: app.globalData.userInfo,
+          is_login: true
+        })
+      }
     }
   },
+  // getUserInfo() {
+  //   var _self = this
+  //   if (this.data.is_login) {
+  //     app.globalData.userInfo = null
+  //     _self.setData({
+  //       is_login: false
+  //     })
+  //   } else {
+  //     wx.getUserInfo({
+  //       success: function (res) {
+  //         console.log(res)
+  //         app.globalData.userInfo = res.userInfo
+  //         _self.setData({
+  //           user_info: app.globalData.userInfo,
+  //           is_login: true
+  //         })
+  //       }
+  //     })
+  //   }
+  // },
+  // saveUserInfo() {
+  //   var params = {
+  //     avatar: '',
+  //     nick_name: '',
+  //     phone: ''
+  //   }
+  //   wx.request({
+  //     url: app.globalData.apiUrl + '/user/modify',
+  //   })
+  // },
   onClickOrder(event) {
     console.log(event.target.dataset.type)
     if (this.data.is_login === false) {
       return wx.showToast({
         title: '请登录账号',
-        icon:"none"
+        icon: "none"
       })
     }
     wx.navigateTo({
       url: '/pages/my/order/index' + '?data=' + JSON.stringify(event.currentTarget.dataset.type)
     })
   },
-  onClickFix(){
+  onClickFix() {
     if (this.data.is_login === false) {
       return wx.showToast({
         title: '请登录账号',
-        icon:"none"
+        icon: "none"
       })
     }
     wx.navigateTo({
-      url: '/pages/my/fix/index' 
+      url: '/pages/my/fix/index'
     })
   },
 
-  onClickBill(){
+  onClickBill() {
     if (this.data.is_login === false) {
       return wx.showToast({
         title: '请登录账号',
-        icon:"none"
+        icon: "none"
       })
     }
     wx.navigateTo({
-      url: '/pages/my/bill/index' 
+      url: '/pages/my/bill/index'
     })
   },
-  onClickSetting(){
+  onClickSetting() {
+    if (this.data.is_login === false) {
+      return wx.showToast({
+        title: '请登录账号',
+        icon: "none"
+      })
+    }
     wx.navigateTo({
-      url: '/pages/my/setting/index'+'?data='+JSON.stringify(this.data.user_info),
+      url: '/pages/my/setting/index' + '?data=' + JSON.stringify(this.data.user_info),
     })
   },
-  onClickSwitch(){
+  onClickSwitch() {
     wx.navigateTo({
       url: '/pages/my/switch/index',
     })
