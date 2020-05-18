@@ -5,10 +5,10 @@
 		<view class="current-title">当前房产</view>
 		<view class="no-hose-name" wx:if="{{!hasHose}}">当前暂未选择您的房产</view>
 		<view wx:else>
-			<view class="house-name">成都_中德英伦联邦
+			<view class="house-name">{{userInfo.commodity_name}}
 				<text class="tag">业主</text>
 			</view>
-			<view class="unit">中德英伦联邦1栋二单元1301</view>
+			<view class="unit">{{userInfo.room}}</view>
 		</view>
 	</view>
 	<view class="seciton">其他房产</view>

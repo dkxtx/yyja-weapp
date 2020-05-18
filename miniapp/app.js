@@ -37,7 +37,7 @@ App({
     adress: '中德英伦联邦1栋二单元1301',
     userInfo: null,
     wxUserInfo: null,
-    phone: '15928529294',
+    phone: '',
     // apiUrl: 'https://sc.bzamo.com',
     apiUrl:'http://192.168.51.224:9001',
     header: {

@@ -7,6 +7,7 @@ Page({
    */
   data: {
     hasHose: false,
+    userInfo: app.globalData.userInfo,
     current_community: {},
     house_list: [
       // {

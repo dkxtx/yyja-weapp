@@ -2,7 +2,7 @@
 <view class="pay_container">
 	<view class="top_box">
 		<image class="top_icon" src="../../../images/icon-wdxq@2x.png" lazy-load="false" binderror="" bindload=""></image>
-		<text class="top_text">中德英伦联邦1栋二单元1301</text>
+		<text class="top_text">{{address}}</text>
 	</view>
 	<!-- ---- -->
 	<view class="swiper-tab">
