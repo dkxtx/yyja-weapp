@@ -30,19 +30,29 @@ Page({
         _self.setData({
           hasInfo: true
         })
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '获取您的信息用于展示个人中心信息',
+          icon: 'none'
+        })
+        console.log(err)
       }
     })
   },
 
   getPhone(e) {
-    console.log(e)
     // app.globalData.phone = res.phone
+    if (!e.detail.hasOwnProperty('encryptedData')) {
+      wx.showToast({
+        title: '请使用手机号进行登录',
+        icon: 'none'
+      })
+      return
+    }
     this.saveUserInfo()
     wx.setStorageSync('fromUserAuth', 1)
     wx.navigateBack({})
-    // wx.switchTab({
-    //   url: '../../my/index',
-    // })
   },
 
   saveUserInfo() {
@@ -55,7 +65,10 @@ Page({
       url: app.globalData.apiUrl + '/user/modify',
       method: 'GET',
       data: params,
-      header: app.globalData.header
+      header: app.globalData.header,
+      success: (res) => {
+        console.log(res)
+      }
     })
   },
 

@@ -35,7 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    phone: '',
+    phone: '15928529294',
     // apiUrl: 'https://sc.bzamo.com',
     apiUrl:'http://192.168.51.224:9001',
     header: {

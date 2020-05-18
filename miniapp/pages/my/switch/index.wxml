@@ -3,10 +3,13 @@
 	<view class="header">
 		<image src="../../../images/img-kpbj@2x.png" class="header-img"></image>
 		<view class="current-title">当前房产</view>
-		<view class="house-name">成都_中德英伦联邦
-			<text class="tag">业主</text>
+		<view class="no-hose-name" wx:if="{{!hasHose}}">当前暂未选择您的房产</view>
+		<view wx:else>
+			<view class="house-name">成都_中德英伦联邦
+				<text class="tag">业主</text>
+			</view>
+			<view class="unit">中德英伦联邦1栋二单元1301</view>
 		</view>
-		<view class="unit">中德英伦联邦1栋二单元1301</view>
 	</view>
 	<view class="seciton">其他房产</view>
 	<view class="item" wx:for="{{house_list}}" wx:for-item="item" wx:key="index">
