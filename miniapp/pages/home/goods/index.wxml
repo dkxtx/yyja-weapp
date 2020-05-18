@@ -4,7 +4,7 @@
 		<scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%;display:flex">
 			<image wx:for="{{goods.pic}}" wx:for-item="item" wx:key="index" src="{{item}}" class="scroll-view-item_H" style="height:{{bannerHeight}}px"></image>
 		</scroll-view>
-	</view>
+	</view>r
 	<view class="content">
 		<view class="store-name">{{goods.name}}</view>
 		<view style="word-break:break-all;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;padding:0 30rpx">
