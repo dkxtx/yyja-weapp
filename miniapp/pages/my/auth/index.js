@@ -13,8 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.userInfo)
-    if (app.globalData.userInfo) {
+    console.log(app.globalData.wxUserInfo)
+    if (app.globalData.wxUserInfo) {
       this.setData({
         hasInfo: true
       })
@@ -26,36 +26,49 @@ Page({
     wx.getUserInfo({
       success: function (res) {
         console.log(res)
-        app.globalData.userInfo = res.userInfo
+        app.globalData.wxUserInfo = res.userInfo
         _self.setData({
           hasInfo: true
         })
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '获取您的信息用于展示个人中心信息',
+          icon: 'none'
+        })
+        console.log(err)
       }
     })
   },
 
   getPhone(e) {
-    console.log(e)
     // app.globalData.phone = res.phone
+    if (!e.detail.hasOwnProperty('encryptedData')) {
+      wx.showToast({
+        title: '请使用手机号进行登录',
+        icon: 'none'
+      })
+      return
+    }
     this.saveUserInfo()
     wx.setStorageSync('fromUserAuth', 1)
     wx.navigateBack({})
-    // wx.switchTab({
-    //   url: '../../my/index',
-    // })
   },
 
   saveUserInfo() {
     var params = {
-      avatar: app.globalData.userInfo.avatar,
-      nick_name: app.globalData.userInfo.nick_name,
+      avatar: app.globalData.wxUserInfo.avatar,
+      nick_name: app.globalData.wxUserInfo.nick_name,
       phone: app.globalData.phone
     }
     wx.request({
       url: app.globalData.apiUrl + '/user/modify',
       method: 'GET',
       data: params,
-      header: app.globalData.header
+      header: app.globalData.header,
+      success: (res) => {
+        console.log(res)
+      }
     })
   },
 

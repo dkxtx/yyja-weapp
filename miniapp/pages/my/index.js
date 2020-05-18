@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    adress: app.globalData.adress,
+    has_house: false,
     is_login: false,
     user_info: {}
   },
@@ -15,20 +17,20 @@ Page({
    */
   onLoad: function (options) {
     console.log("++++onLoad++++++")
-    console.log(app.globalData.userInfo)
-    if (app.globalData.userInfo && app.globalData.phone) {
+    console.log(app.globalData.wxUserInfo)
+    if (app.globalData.wxUserInfo && app.globalData.phone) {
       this.setData({
         is_login: true,
-        user_info: app.globalData.userInfo
+        user_info: app.globalData.wxUserInfo
       })
     }
   },
-  onShow:function(){
+  onShow: function () {
     console.log("++++onShow++++++")
     console.log(wx.getStorageSync('fromUserAuth'))
     if (wx.getStorageSync('fromUserAuth') == 1) {
       this.setData({
-        user_info: app.globalData.userInfo,
+        user_info: app.globalData.wxUserInfo,
         is_login: true
       })
       wx.removeStorageSync('fromUserAuth')
@@ -41,48 +43,18 @@ Page({
         is_login: false
       })
     } else {
-      if (!app.globalData.userInfo && !app.globalData.phone) {
+      if (!app.globalData.wxUserInfo && !app.globalData.phone) {
         wx.navigateTo({
           url: 'auth/index',
         })
       } else {
         this.setData({
-          user_info: app.globalData.userInfo,
+          user_info: app.globalData.wxUserInfo,
           is_login: true
         })
       }
     }
   },
-  // getUserInfo() {
-  //   var _self = this
-  //   if (this.data.is_login) {
-  //     app.globalData.userInfo = null
-  //     _self.setData({
-  //       is_login: false
-  //     })
-  //   } else {
-  //     wx.getUserInfo({
-  //       success: function (res) {
-  //         console.log(res)
-  //         app.globalData.userInfo = res.userInfo
-  //         _self.setData({
-  //           user_info: app.globalData.userInfo,
-  //           is_login: true
-  //         })
-  //       }
-  //     })
-  //   }
-  // },
-  // saveUserInfo() {
-  //   var params = {
-  //     avatar: '',
-  //     nick_name: '',
-  //     phone: ''
-  //   }
-  //   wx.request({
-  //     url: app.globalData.apiUrl + '/user/modify',
-  //   })
-  // },
   onClickOrder(event) {
     console.log(event.target.dataset.type)
     if (this.data.is_login === false) {

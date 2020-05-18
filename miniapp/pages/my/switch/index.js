@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current_community:{},
+    hasHose: false,
+    userInfo: app.globalData.userInfo,
+    current_community: {},
     house_list: [
       // {
       //   title: "成都_中德英伦城邦",
@@ -49,9 +51,9 @@ Page({
         'content-type': 'application/json', // 默认值
         'token': wx.getStorageSync('token')
       },
-      success:(res) => {
+      success: (res) => {
         this.setData({
-          house_list: res.data.data
+          // house_list: res.data.data
         })
         console.log(res)
       }
@@ -71,7 +73,7 @@ Page({
         'content-type': 'application/json', // 默认值
         'token': wx.getStorageSync('token')
       },
-      success:(res) => {
+      success: (res) => {
         console.log(res)
       }
     })

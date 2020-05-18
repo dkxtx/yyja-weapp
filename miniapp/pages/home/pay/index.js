@@ -1,11 +1,12 @@
-// pages/home/pay/index.js
+// pages/home/pay/index.js4
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    address: '中德英伦联邦1栋二单元1301',
+    address: app.globalData.adress,
     icon1: '@/images/icon-wdxq@2x.png',
     winWidth: 0,
     winHeight: 0,

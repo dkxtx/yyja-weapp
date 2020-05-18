@@ -43,7 +43,8 @@
   border-radius: 10rpx;
   margin-top: 30rpx;
   display: flex;
-  line-height: 68rpx;
+  flex-direction: row;
+  align-items: center;
 }
 
 .location-class {
@@ -51,7 +52,8 @@
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  margin-left: 20rpx
+  margin-left: 20rpx;
+  flex: 1;
 }
 
 .switch-btn {
@@ -59,14 +61,13 @@
   height: 48rpx;
   background: rgba(229, 73, 84, 1);
   border-radius: 24rpx;
-  margin-left: 80rpx;
   font-size: 24rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   line-height: 48rpx;
   text-align: center;
-  margin-top: 10rpx;
+  margin-right: 20rpx;
 }
 
 .news-nav {
