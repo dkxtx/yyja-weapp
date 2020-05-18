@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-field": "../../../vant-weapp/field/index",
+    "van-radio": "../../../vant-weapp/radio/index",
+    "van-radio-group": "../../../vant-weapp/radio-group/index",
+    "van-cell-group":"../../../vant-weapp/cell-group/index",
+    "van-cell":"../../../vant-weapp/cell/index"
+  },
+  "navigationBarTitleText": "添加房屋"
 }

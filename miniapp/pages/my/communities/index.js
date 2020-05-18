@@ -5,16 +5,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    value:"",
+    communities:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
+    var data = {
+      pc_id:1
+    }
+    wx.request({
+      url: getApp().globalData.apiUrl + '/user/pc/communities',
+      method: 'GET',
+      data: data,
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
+      success:(res) => {
+        this.setData({
+          communities:res.data.data
+        })
+        wx.hideLoading()
+        console.log(this.data.communities)
+      }
+    })
   },
-
+  onClickCommunity(event){
+    console.log(event.currentTarget.dataset.item)
+    wx.navigateTo({
+      url:'/pages/my/house/index'+'?data='+JSON.stringify(event.currentTarget.dataset.item)
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
