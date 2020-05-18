@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    adress: app.globalData.adress,
+    adress: '',
     has_house: false,
     is_login: false,
     user_info: {}
@@ -23,19 +23,36 @@ Page({
         is_login: true,
         user_info: app.globalData.wxUserInfo
       })
+      this.getUserInfo()
     }
   },
-  onShow: function () {
-    console.log("++++onShow++++++")
-    console.log(wx.getStorageSync('fromUserAuth'))
-    if (wx.getStorageSync('fromUserAuth') == 1) {
-      this.setData({
-        user_info: app.globalData.wxUserInfo,
-        is_login: true
-      })
-      wx.removeStorageSync('fromUserAuth')
-    }
+  getUserInfo() {
+    wx.request({
+      url: app.globalData.apiUrl + '/user/info',
+      method: 'GET',
+      header: app.globalData.header,
+      success: (result) => {
+        console.log(result)
+        wx.setStorageSync('user_info', result.data.data)
+        app.globalData.userInfo = result.data.data
+        app.globalData.adress = result.data.data.commodity_name + result.data.data.room
+        this.setData({
+          address: app.globalData.adress
+        })
+      }
+    })
   },
+  // onShow: function () {
+  //   console.log("++++onShow++++++")
+  //   console.log(wx.getStorageSync('fromUserAuth'))
+  //   if (wx.getStorageSync('fromUserAuth') == 1) {
+  //     this.setData({
+  //       user_info: app.globalData.wxUserInfo,
+  //       is_login: true
+  //     })
+  //     wx.removeStorageSync('fromUserAuth')
+  //   }
+  // },
   userLogin() {
     if (this.data.is_login) {
       this.setData({

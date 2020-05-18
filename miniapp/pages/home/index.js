@@ -62,12 +62,12 @@ Page({
             fail: () => { },
             complete: () => { }
         })
-        this.userLogin()
-        // if (!wx.getStorageSync('token')) {
-        //     this.userLogin()
-        // } else {
-        //     this.getNews()
-        // }
+        // this.userLogin()
+        if (!wx.getStorageSync('token')) {
+            this.userLogin()
+        } else {
+            this.getNews()
+        }
     },
     userLogin() {
         wx.login({
@@ -84,9 +84,6 @@ Page({
                     },
                     success: (result) => {
                         wx.setStorageSync('token', result.data.data.token)
-                        wx.setStorageSync('user_info', result.data.data.user)
-                        app.globalData.userInfo = result.data.data.user
-                        app.globalData.adress = result.data.data.user.commodity_name + result.data.data.user.room
                         console.log(result)
                         this.getNews()
                     }
