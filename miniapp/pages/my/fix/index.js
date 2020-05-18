@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[
+      // {
+      //   pics:['https://qyd-rental.oss-cn-beijing.aliyuncs.com/bikes/1573639242323.%E5%B0%8F%E5%AE%9D%E9%A9%AC.png','https://qyd-rental.oss-cn-beijing.aliyuncs.com/bikes/1573639242323.%E5%B0%8F%E5%AE%9D%E9%A9%AC.png','https://qyd-rental.oss-cn-beijing.aliyuncs.com/bikes/1573639242323.%E5%B0%8F%E5%AE%9D%E9%A9%AC.png'],
+      //   title:"张涌泉的报修，马桶堵了，嗙臭",
+      //   time:"2020-05-18 10:30",
+      //   is_fixed:true
+      // }
+    ]
   },
 
   /**
@@ -21,6 +28,12 @@ Page({
       wx.hideLoading()
       wx.showToast({title: '暂无报修数据',icon: 'none',duration: 2000})
     }, 500)
+  },
+  onClickItem(event){
+    console.log(event)
+    wx.navigateTo({
+      url: '../fix_detail/index?data='+JSON.stringify(event.currentTarget.dataset.item),
+    })
   },
 
   /**

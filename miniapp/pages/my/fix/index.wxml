@@ -1,7 +1,7 @@
 <!--pages/my/fix/index.wxml-->
 <view class="bg-class">
 	<view class="no-order-class" wx:if="{{list.length == 0}}">暂无报修数据</view>
-	<view class="item" wx:for="{{list}}" wx:for-item="item" wx:key="index">
+	<view class="item" wx:for="{{list}}" wx:for-item="item" wx:key="index" bindtap="onClickItem" data-item="{{item}}">
 		<view class="img-class">
 			<image src="{{item.pics[0]}}" style="width:100%;height:100%;border-radius:10rpx"></image>
 			<view class="img-count">{{item.pics.length}}图</view>
