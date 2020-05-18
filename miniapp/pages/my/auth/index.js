@@ -38,9 +38,11 @@ Page({
     console.log(e)
     // app.globalData.phone = res.phone
     this.saveUserInfo()
-    wx.switchTab({
-      url: '../../my/index',
-    })
+    wx.setStorageSync('fromUserAuth', 1)
+    wx.navigateBack({})
+    // wx.switchTab({
+    //   url: '../../my/index',
+    // })
   },
 
   saveUserInfo() {

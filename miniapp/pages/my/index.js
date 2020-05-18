@@ -14,12 +14,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("++++onLoad++++++")
     console.log(app.globalData.userInfo)
     if (app.globalData.userInfo && app.globalData.phone) {
       this.setData({
         is_login: true,
         user_info: app.globalData.userInfo
       })
+    }
+  },
+  onShow:function(){
+    console.log("++++onShow++++++")
+    console.log(wx.getStorageSync('fromUserAuth'))
+    if (wx.getStorageSync('fromUserAuth') == 1) {
+      this.setData({
+        user_info: app.globalData.userInfo,
+        is_login: true
+      })
+      wx.removeStorageSync('fromUserAuth')
     }
   },
   userLogin() {

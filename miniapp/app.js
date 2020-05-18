@@ -36,7 +36,8 @@ App({
   globalData: {
     userInfo: null,
     phone: '',
-    apiUrl: 'https://sc.bzamo.com',
+    // apiUrl: 'https://sc.bzamo.com',
+    apiUrl:'http://192.168.51.224:9001',
     header: {
       'content-type': 'application/json', // 默认值
       'token': wx.getStorageSync('token') || ''
