@@ -126,6 +126,13 @@
 					"id": -1,
 					"name": "pages/my/switch/index",
 					"pathName": "pages/my/switch/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/communities/index",
+					"pathName": "pages/my/communities/index",
 					"scene": null
 				}
 			]

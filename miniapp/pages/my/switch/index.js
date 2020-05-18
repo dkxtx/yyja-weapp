@@ -76,7 +76,11 @@ Page({
       }
     })
   },
-
+  onClickAdd(){
+    wx.navigateTo({
+      url: '../communities/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

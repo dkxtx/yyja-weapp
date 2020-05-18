@@ -1,2 +1,4 @@
 <!--pages/my/communities/index.wxml-->
-<text>pages/my/communities/index.wxml</text>
+<view class="bg-class">
+  <van-cell  wx:for="{{communities}}" wx:for-item="item" wx:key="index" title="{{item.name}}"  size="large" bindtap="onClickCommunity" data-item="{{item}}" />
+</view>
