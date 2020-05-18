@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hasHose: false,
+    current_community:{},
     house_list: [
       // {
       //   title: "成都_中德英伦城邦",
