@@ -38,8 +38,8 @@ App({
     userInfo: null,
     wxUserInfo: null,
     phone: '',
-    // apiUrl: 'https://sc.bzamo.com',
-    apiUrl: 'http://192.168.51.224:9001',
+    apiUrl: 'https://sc.bzamo.com',
+    // apiUrl: 'http://192.168.51.224:9001',
     header: {
       'content-type': 'application/json', // 默认值
       'token': wx.getStorageSync('token') ? wx.getStorageSync('token') : ''
