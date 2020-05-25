@@ -73,12 +73,16 @@ Page({
   },
 
   uploadReader(e) {
-    let fileItem = {
-      url: e.detail.file.path
-    }
-    this.data.imgData.push(fileItem)
+    this.data.imgData.push(e.detail.file.path)
+    this.data.imgData.forEach(item => {
+      let fileItem = {
+        url: item
+      }
+      this.data.fileList.push(fileItem)
+    })
+
     this.setData({
-      fileList: this.data.imgData
+      fileList: this.data.fileList
     })
   },
 
@@ -122,11 +126,11 @@ Page({
     let guarantDate = this.data.chooseDate.replace(/-/g, '/') + ' ' + this.data.chooseTime
     const formData = {
       pc_id: 1,
-      community_id: '',
+      community_id: wx.getStorageSync('user_info').commodity_id,
       content: this.data.guarantee,
       name: this.data.name,
       phone: this.data.phone,
-      door_time: new Date(guarantDate).getTime(),
+      door_time: new Date(guarantDate).getTime() / 1000,
       images: this.data.imgData
     }
     wx.showLoading({
@@ -141,7 +145,13 @@ Page({
         'token': wx.getStorageSync('token')
       },
       success: (result) => {
-        console.log(result)
+        if (result.data.code !== 200) {
+          wx.hideLoading({})
+          wx.showToast({
+            title: '网络异常'
+          })
+          return
+        }
         wx.hideLoading({})
         wx.showToast({
           title: '提交成功'
