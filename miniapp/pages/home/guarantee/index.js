@@ -1,4 +1,5 @@
 // pages/home/guarantee/index.js
+var app = getApp()
 Page({
 
   /**
@@ -12,7 +13,9 @@ Page({
     endDate: '',
     chooseTime: '08:00',
     name: '',
-    phone: ''
+    phone: '',
+    fileList: [],
+    imgData: []
   },
 
   /**
@@ -69,10 +72,34 @@ Page({
     })
   },
 
+  uploadReader(e) {
+    let fileItem = {
+      url: e.detail.file.path
+    }
+    this.data.imgData.push(fileItem)
+    this.setData({
+      fileList: this.data.imgData
+    })
+  },
+
+  deletePhoto(e) {
+    this.data.imgData.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      fileList: this.data.imgData
+    })
+  },
+
   sureSend() {
     if (this.data.text_count === 0) {
       wx.showToast({
         title: '请输入问题详情',
+        icon: "none"
+      })
+      return
+    }
+    if (this.data.imgData.length === 0) {
+      wx.showToast({
+        title: '至少上传一张图片',
         icon: "none"
       })
       return
@@ -92,18 +119,47 @@ Page({
       })
       return
     }
+    let guarantDate = this.data.chooseDate.replace(/-/g, '/') + ' ' + this.data.chooseTime
+    const formData = {
+      pc_id: 1,
+      community_id: '',
+      content: this.data.guarantee,
+      name: this.data.name,
+      phone: this.data.phone,
+      door_time: new Date(guarantDate).getTime(),
+      images: this.data.imgData
+    }
     wx.showLoading({
       title: '提交中'
     })
-    setTimeout(() => {
-      wx.hideLoading({})
-      wx.showToast({
-        title: '提交成功'
-      })
-    }, 1000)
-    setTimeout(() => {
-      wx.navigateBack({})
-    }, 2500)
+    wx.request({
+      url: app.globalData.apiUrl + '/user/repair/create',
+      method: 'POST',
+      data: formData,
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
+      success: (result) => {
+        console.log(result)
+        wx.hideLoading({})
+        wx.showToast({
+          title: '提交成功'
+        })
+        setTimeout(() => {
+          wx.navigateBack({})
+        }, 2000)
+      }
+    })
+    // setTimeout(() => {
+    //   wx.hideLoading({})
+    //   wx.showToast({
+    //     title: '提交成功'
+    //   })
+    // }, 1000)
+    // setTimeout(() => {
+    //   wx.navigateBack({})
+    // }, 2500)
   },
 
   /**

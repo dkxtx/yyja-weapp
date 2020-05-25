@@ -70,3 +70,44 @@
 .send_btn::after {
   border-width: 0;
 }
+
+.upload_box {
+  width: 95%;
+  margin: 30rpx auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.img_box {
+  position: relative;
+  margin: 0 15rpx 20rpx 15rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.delete_icon {
+  font-size: 40rpx;
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+}
+
+.has_upload_img {
+  width: 146rpx;
+  height: 146rpx;
+}
+
+.upload_img {
+  width: 146rpx;
+  height: 146rpx;
+  margin-left: 15rpx;
+}
+
+/* .van-uploader__preview {
+  margin: 0 15rpx 20rpx 15rpx !important;
+}
+
+.van-uploader__preview-image {
+  width: 146rpx !important;
+  height: 146rpx !important;
+} */
