@@ -3,14 +3,14 @@
 	<view class="no-order-class" wx:if="{{list.length == 0}}">暂无报修数据</view>
 	<view class="item" wx:for="{{list}}" wx:for-item="item" wx:key="index" bindtap="onClickItem" data-item="{{item}}">
 		<view class="img-class">
-			<image src="{{item.pics[0]}}" style="width:100%;height:100%;border-radius:10rpx"></image>
-			<view class="img-count">{{item.pics.length}}图</view>
+			<image src="{{item.images[0]}}" style="width:100%;height:100%;border-radius:10rpx"></image>
+			<view class="img-count">{{item.images.length}}图</view>
 		</view>
 		<view>
-			<view class="title">{{item.title}}</view>
-			<view class="time">{{item.time}}</view>
+			<view class="title">{{item.name}}</view>
+			<view class="time">{{item.created}}</view>
 		</view>
-		<view wx:if="{{item.fixed==true}}" class="fixed-class">
+		<view wx:if="{{item.status==2}}" class="fixed-class">
 			<image src="/images/icon-ywx@2x.png" style="width:100%;height:100%"></image>
 		</view>
 	</view>

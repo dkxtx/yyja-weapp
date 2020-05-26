@@ -1,5 +1,6 @@
 // pages/home/guarantee/index.js
-var app = getApp()
+var app = getApp();
+var util = require('../../../utils/util.js');
 Page({
 
   /**
@@ -72,15 +73,31 @@ Page({
     })
   },
 
-  uploadReader(e) {
-    this.data.imgData.push(e.detail.file.path)
-    let fileItem = {
-      url: e.detail.file.path
-    }
-    this.data.fileList.push(fileItem)
-    this.setData({
-      fileList: this.data.fileList
-    })
+  uploadReader() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: (result) => {
+        wx.showLoading({
+          title: '加载中',
+          icon: 'none'
+      })
+        util.qiniuUpload(result.tempFilePaths, (url) => {
+          this.data.imgData.push(url)
+          let fileItem = {
+            url: url
+          }
+          this.data.fileList.push(fileItem)
+          this.setData({
+            fileList: this.data.fileList
+          })
+          wx.hideLoading({ })
+        })
+      },
+      fail: () => { },
+      complete: () => { }
+    });
   },
 
   deletePhoto(e) {
@@ -123,7 +140,7 @@ Page({
     }
     let guarantDate = this.data.chooseDate.replace(/-/g, '/') + ' ' + this.data.chooseTime
     const formData = {
-      pc_id: 1,
+      pc_id: app.globalData.pc_id,
       community_id: wx.getStorageSync('user_info').commodity_id,
       content: this.data.guarantee,
       name: this.data.name,

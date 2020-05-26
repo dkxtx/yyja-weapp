@@ -22,16 +22,22 @@ Page({
   },
 
   getUserInfo() {
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     var _self = this
     wx.getUserInfo({
       success: function (res) {
         console.log(res)
         app.globalData.wxUserInfo = res.userInfo
+        wx.hideLoading({})
         _self.setData({
           hasInfo: true
         })
       },
       fail: (err) => {
+        wx.hideLoading({})
         wx.showToast({
           title: '获取您的信息用于展示个人中心信息',
           icon: 'none'
@@ -43,7 +49,12 @@ Page({
 
   getPhone(e) {
     console.log(e)
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     if (!e.detail.hasOwnProperty('encryptedData')) {
+      wx.hideLoading({})
       wx.showToast({
         title: '请使用手机号进行登录',
         icon: 'none'
@@ -69,11 +80,13 @@ Page({
             console.log(result)
             app.globalData.phone = result.data.data.phone
             this.saveUserInfo()
+          },
+          fail: (err) => {
+            wx.hideLoading({})
           }
         })
       }
     })
-    wx.setStorageSync('fromUserAuth', 1)
   },
 
   saveUserInfo() {
@@ -93,6 +106,8 @@ Page({
       },
       success: (res) => {
         console.log(res)
+        wx.hideLoading({})
+        wx.setStorageSync('fromUserAuth', true)
         wx.showToast({
           title: '登录成功',
           icon: 'none'

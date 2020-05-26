@@ -18,7 +18,7 @@ Page({
       mask:true
     })
     var data = {
-      pc_id:1
+      pc_id:app.globalData.pc_id
     }
     wx.request({
       url: getApp().globalData.apiUrl + '/user/pc/communities',

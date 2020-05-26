@@ -14,9 +14,9 @@ Page({
       url: 'notice/index',
     })
   },
-  showDetail(e){
+  showDetail(e) {
     wx.navigateTo({
-      url:'/pages/service/notice/detail/index?data='+ encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
+      url: '/pages/service/notice/detail/index?data=' + encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
     })
   },
 
@@ -37,15 +37,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var _self = this
     wx.showLoading({
       title: '加载中',
     })
+    this.getNotice()
+    this.getBanner()
+  },
+
+  getBanner() {
+    wx.request({
+      url: getApp().globalData.apiUrl + '/user/banner',
+      method: 'GET',
+      data: {
+        pc_id: app.globalData.pc_id,
+        type: 3
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token')
+      },
+      success: (res) => {
+        console.log(res)
+      }
+    })
+  },
+
+  getNotice() {
+    var _self = this
     wx.request({
       url: app.globalData.apiUrl + '/user/notices',
       method: 'GET',
       data: {
-        pc_id: 1
+        pc_id: app.globalData.pc_id
       },
       header: {
         'content-type': 'application/json', // 默认值

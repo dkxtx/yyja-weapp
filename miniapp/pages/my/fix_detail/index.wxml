@@ -2,18 +2,18 @@
 <view class="item-bg">
 	<view class="item-title">
 		<view class="time">
-			<view style="font-size:32rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(36,36,36,1);">{{fix_detail.time}}</view>
-			<view wx:if="{{fix_detail.is_fixed == true}}" style="width:88rpx;height:72rpx;position: absolute;right: 6%;top: 14rpx;">
+			<view style="font-size:32rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(36,36,36,1);">{{fix_detail.created}}</view>
+			<view wx:if="{{fix_detail.status == 2}}" style="width:88rpx;height:72rpx;position: absolute;right: 6%;top: 14rpx;">
 				<image src="/images/icon-ywx@2x.png" style="width:88rpx;height:72rpx"></image>
 			</view>
 		</view>
 	</view>
-  <view class="content">{{fix_detail.title}}</view>
+  <view class="content">{{fix_detail.name}}</view>
   <view class="imgs">
-  <image wx:for="{{fix_detail.pics}}" wx:for-item="item" wx:key="index" style="width:190rpx;height:190rpx;margin-left:20rpx;background:white;border-radius:10rpx" src="{{item}}"></image>
+  <image wx:for="{{fix_detail.images}}" wx:for-item="item" wx:key="index" style="width:190rpx;height:190rpx;margin-left:20rpx;background:white;border-radius:10rpx" src="{{item}}"></image>
   </view>
 	<view class="footer">
 	<view class="footer-title">预约上门时间</view>
-		<view class="footer-time">{{fix_detail.time}}</view>
+		<view class="footer-time">{{fix_detail.door_time}}</view>
 	</view>
 </view>

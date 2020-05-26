@@ -66,6 +66,7 @@ Page({
         if (!wx.getStorageSync('token')) {
             this.userLogin()
         } else {
+            this.getBanner()
             this.getNews()
         }
     },
@@ -78,7 +79,7 @@ Page({
                     method: 'POST',
                     data: {
                         code: res.code,
-                        pc_id: 1
+                        pc_id: app.globalData.pc_id
                     },
                     header: {
                         'content-type': 'application/json' // 默认值
@@ -86,9 +87,27 @@ Page({
                     success: (result) => {
                         wx.setStorageSync('token', result.data.data.token)
                         console.log(result)
+                        this.getBanner()
                         this.getNews()
                     }
                 })
+            }
+        })
+    },
+    getBanner() {
+        wx.request({
+            url: getApp().globalData.apiUrl + '/user/banner',
+            method: 'GET',
+            data: {
+                pc_id: app.globalData.pc_id,
+                type: 1
+            },
+            header: {
+                'content-type': 'application/json', // 默认值
+                'token': wx.getStorageSync('token')
+            },
+            success: (res) => {
+                console.log(res)
             }
         })
     },
@@ -101,7 +120,7 @@ Page({
             url: getApp().globalData.apiUrl + '/user/news',
             method: 'GET',
             data: {
-                pc_id: 1
+                pc_id: app.globalData.pc_id
             },
             header: {
                 'content-type': 'application/json', // 默认值

@@ -22,7 +22,16 @@ Page({
       title: '加载中',
       icon: 'none'
     })
-    this.getUserInfo()
+    if (wx.getStorageSync('fromUserAuth')) {
+      this.setData({
+        auth: true
+      })
+    }
+    if (this.data.is_login) {
+      this.getUserInfo()
+    } else {
+      wx.hideLoading({})
+    }
   },
 
   getUserInfo() {
@@ -56,21 +65,23 @@ Page({
   },
 
   userLogin() {
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     if (this.data.is_login) {
       this.setData({
         user_info: {},
         is_login: false
       })
+      wx.hideLoading({})
     } else {
       if (!this.data.auth) {
         wx.navigateTo({
           url: 'auth/index',
         })
       } else {
-        this.setData({
-          user_info: app.globalData.userInfo,
-          is_login: true
-        })
+        this.getUserInfo()
       }
     }
   },

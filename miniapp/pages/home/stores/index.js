@@ -36,7 +36,7 @@ Page({
       url: getApp().globalData.apiUrl+'/user/stores',
       method: 'GET',
       data: {
-          pc_id: 1
+          pc_id: app.globalData.pc_id
       },
       header: {
           'content-type': 'application/json', // 默认值

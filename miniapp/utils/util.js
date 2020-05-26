@@ -14,6 +14,42 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const qiniuUpload = (imagePath, success) => {
+  console.log('imagePath === ', imagePath)
+  //服务器获取 七牛云token
+  wx.request({
+    url: 'https://miniapp.cihangca.com' + '/admin/qiniutoken',
+    data: {},
+    header: { 'content-type': 'application/json' },
+    method: 'GET',
+    dataType: 'json',
+    responseType: 'text',
+    success: (result) => {
+      const token = result.data.token
+      wx.uploadFile({
+        url: 'https://up-z0.qiniup.com',
+        filePath: imagePath[0],
+        name: 'file',
+        header: {
+          "Content-Type": "multipart/form-data"
+        },
+        formData: {
+          token: token
+        },
+        success: (result) => {
+          const data = JSON.parse(result.data)
+          success('http://aixingfucdn.mayunio.com/' + data.key)
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+    },
+    fail: () => { },
+    complete: () => { }
+  });
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  qiniuUpload: qiniuUpload
 }
