@@ -74,13 +74,10 @@ Page({
 
   uploadReader(e) {
     this.data.imgData.push(e.detail.file.path)
-    this.data.imgData.forEach(item => {
-      let fileItem = {
-        url: item
-      }
-      this.data.fileList.push(fileItem)
-    })
-
+    let fileItem = {
+      url: e.detail.file.path
+    }
+    this.data.fileList.push(fileItem)
     this.setData({
       fileList: this.data.fileList
     })
@@ -88,8 +85,9 @@ Page({
 
   deletePhoto(e) {
     this.data.imgData.splice(e.currentTarget.dataset.index, 1)
+    this.data.fileList.splice(e.currentTarget.dataset.index, 1)
     this.setData({
-      fileList: this.data.imgData
+      fileList: this.data.fileList
     })
   },
 

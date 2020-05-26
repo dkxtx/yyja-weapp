@@ -76,6 +76,7 @@
   margin: 30rpx auto;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .img_box {
@@ -83,6 +84,7 @@
   margin: 0 15rpx 20rpx 15rpx;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .delete_icon {

@@ -9,7 +9,7 @@
 			<image class="has_upload_img" src="{{item.url}}"></image>
 			<van-icon class="delete_icon" name="clear" color="#00000" bindtap="deletePhoto" data-index="{{index}}" />
 		</view>
-		<van-uploader deletable="{{false}}" max-count="6" bind:after-read="uploadReader">
+		<van-uploader wx:if="{{fileList.length < 6}}" deletable="{{false}}" max-count="6" bind:after-read="uploadReader">
 			<image class="upload_img" src="../../../images/icon-add-dbj@2x.png"></image>
 		</van-uploader>
 	</view>
