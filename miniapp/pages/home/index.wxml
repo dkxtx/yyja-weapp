@@ -16,6 +16,13 @@
 	<van-grid-item icon="/images/icon_wqdc@2x.png" text="问卷调查" />
 	<van-grid-item icon="/images/icon_izbsj@2x.png" text="周边商家" bind:tap="storeAction" />
 </van-grid>
+<van-grid column-num="5">
+	<van-grid-item icon="/images/icon_jzfw@3x.png" icon-size="45px" bind:tap="payAction" text="家政服务" />
+	<van-grid-item icon="/images/icon_ssfw@3x.png" bind:tap="guaranteeAction" text="送水服务" />
+	<van-grid-item icon="/images/icon_scfw@3x.png" bind:tap="serviceAction"  text="送餐服务" />
+	<van-grid-item icon="/images/icon_scfw@3x (1).png" text="送菜服务" />
+	<van-grid-item icon="/images/icon_gxfw@3x.png" text="干洗服务"/>
+</van-grid>
 <view class="activity">
 	<swiper indicator-dots="{{indicatorDots}}" autoplay interval="{{interval}}" duration="{{duration}}">
 		<block wx:for="{{banners}}" wx:key="*this">

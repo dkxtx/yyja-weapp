@@ -77,7 +77,8 @@ Page({
                     url: getApp().globalData.apiUrl + '/user/wxlogin',
                     method: 'POST',
                     data: {
-                        code: res.code
+                        code: res.code,
+                        pc_id: 1
                     },
                     header: {
                         'content-type': 'application/json' // 默认值

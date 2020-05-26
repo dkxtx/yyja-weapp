@@ -4,6 +4,15 @@
 		<textarea class="text_area" value="{{guarantee}}" maxlength="200" placeholder="请输入问题详情，使我们更高效的处理" placeholder-class="text_placeholder" bindinput="textInp"></textarea>
 		<view class="text_count">{{text_count}}/200</view>
 	</view>
+	<view class="upload_box">
+		<view class="img_box" wx:for="{{fileList}}" wx:key="this" wx:for-index="index" wx:for-item="item">
+			<image class="has_upload_img" src="{{item.url}}"></image>
+			<van-icon class="delete_icon" name="clear" color="#00000" bindtap="deletePhoto" data-index="{{index}}" />
+		</view>
+		<van-uploader deletable="{{false}}" max-count="6" bind:after-read="uploadReader">
+			<image class="upload_img" src="../../../images/icon-add-dbj@2x.png"></image>
+		</van-uploader>
+	</view>
 	<view class="box" style="margin-top:30rpx;">
 		<view class="box_title">报修人</view>
 		<input class="box_content" value="{{name}}" placeholder="请输入报修人姓名" type="text" bindinput="writeName"></input>
