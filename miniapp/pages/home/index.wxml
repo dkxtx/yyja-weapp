@@ -20,7 +20,7 @@
 	<van-grid-item icon="/images/icon_jzfw@3x.png" text="家政服务" />
 	<van-grid-item icon="/images/icon_ssfw@3x.png" text="送水服务" />
 	<van-grid-item icon="/images/icon_scfw@3x.png" text="送餐服务" />
-	<van-grid-item icon="/images/icon_scfw@3x (1).png" text="送菜服务" />
+	<van-grid-item icon="/images/sendFood.png" text="送菜服务" />
 	<van-grid-item icon="/images/icon_gxfw@3x.png" text="干洗服务"/>
 </van-grid>
 <view class="activity">
